@@ -5,4 +5,29 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <package name="package-login" extends="struts-default">
+        <action name="LoginAct" class="thm.web.action.LoginAction">
+            <result name="admin">/WEB-INF/roles/admin.jsp?id=${id}</result>
+            <result name="teacher">/WEB-INF/roles/teacher.jsp?id=${id}</result>
+            <result name="student">/WEB-INF/roles/student.jsp?id=${id}</result>
+            <result name="input">/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="package-defalut" extends="struts-default">
+        <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
+            <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp</result>
+            <result name="manage">/WEB-INF/teacher/managePapers.jsp</result>
+            <result name="input"></result>
+        </action>
+        
+        <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
+            <result name="lookAll">/WEB-INF/teacher/manage/lookAll.jsp</result>
+            <result name="edit">/WEB-INF/teacher/manage/edit.jsp</result>
+            <result name="delete">/WEB-INF/teacher/manage/delete.jsp</result>
+        </action>
+    </package>
 </struts>

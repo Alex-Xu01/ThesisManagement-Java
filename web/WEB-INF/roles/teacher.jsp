@@ -20,5 +20,7 @@
     </select>
     <input type="submit" value="选择">
 </form>
+<a href="teacherFunctionAct.action?functionChoice=reporting&id=${id}">申报论文</a>
+<a href="teacherFunctionAct.action?functionChoice=manage&id=${id}">管理论文</a>
 </body>
 </html>

@@ -32,7 +32,8 @@ public class LoginAction extends ActionSupport {
         if (!accountEntityList.isEmpty() && loginPwd.equals(accountEntityList.get(0).getLoginPwd()) && accountEntityList.get(0).getRole() == 2) {
             return "student";
         }
-        addFieldError("loginErrMsg", "用户不存在，请核对后输入！");
+
+        addFieldError("loginErrMsg", "用户名或密码错误！");
         return INPUT;
     }
 

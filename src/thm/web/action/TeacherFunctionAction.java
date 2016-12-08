@@ -12,36 +12,18 @@ import java.util.List;
 public class TeacherFunctionAction extends ActionSupport{
     private String functionChoice;
     private List<TbPaperinfoEntity> paperList;
-    private String title;
-    private String subtitle;
-    private String type;
-    private int number;
-    private String origin;
-    private String desc;
-    private int result;
-    private String message;
     private TbPaperinfoEntity paperInfo = new TbPaperinfoEntity();
 
     @Override
     public String execute() throws Exception {
-
         PapersDao papersDao = new PapersDao();
 
         if ("reporting".equals(functionChoice))
-                return "declaration";
-        if ("manage".equals(functionChoice)){
+            return "declaration";
+       else{
             paperList = papersDao.queryAll();
             return "manage";
         }
-
-        result = papersDao.insertPaper(paperInfo);
-
-        if (result == 1)
-            message = "论文申报成功！";
-        else
-            message = "论文申报失败！";
-
-        return "declaration";
     }
 
     public String getFunctionChoice() {
@@ -60,59 +42,11 @@ public class TeacherFunctionAction extends ActionSupport{
         this.paperList = paperList;
     }
 
-    public String getTitle() {
-        return title;
+    public TbPaperinfoEntity getPaperInfo() {
+        return paperInfo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
+    public void setPaperInfo(TbPaperinfoEntity paperInfo) {
+        this.paperInfo = paperInfo;
     }
 }

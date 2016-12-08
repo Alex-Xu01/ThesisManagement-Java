@@ -7,7 +7,7 @@
 <validators>
     <field name="title">
         <field-validator type="requiredstring">
-            <message>标题不能为空！</message>
+            <message>论文题目不能为空！</message>
         </field-validator>
     </field>
     
@@ -16,11 +16,13 @@
             <message>论文类型不能为空！</message>
         </field-validator>
     </field>
+
     <field name="number">
-        <field-validator type="requiredstring">
-            <message>允许选择的学生数量不能为空！</message>
+        <field-validator type="required">
+            <message>允许选择题目的学生数量不能为空！</message>
         </field-validator>
     </field>
+
     <field name="origin">
         <field-validator type="requiredstring">
             <message>题目来源不能为空！</message>

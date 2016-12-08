@@ -15,13 +15,7 @@ public class TbTeacherEntity {
     private String title;
     private String specialty;
     private int state;
-
-    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "depId", unique = true)
     private TbDepartmentEntity department;
-
-    @OneToOne(targetEntity = TbAccountEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "accountId", unique = true)
     private TbAccountEntity account;
 
     @Id
@@ -94,6 +88,9 @@ public class TbTeacherEntity {
         this.state = state;
     }
 
+    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "depId", unique = true)
+
     public TbDepartmentEntity getDepartment() {
         return department;
     }
@@ -101,6 +98,9 @@ public class TbTeacherEntity {
     public void setDepartment(TbDepartmentEntity department) {
         this.department = department;
     }
+
+    @OneToOne(targetEntity = TbAccountEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "accountId", unique = true)
 
     public TbAccountEntity getAccount() {
         return account;

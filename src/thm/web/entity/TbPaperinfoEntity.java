@@ -20,13 +20,7 @@ public class TbPaperinfoEntity {
     private String verifyMessage;
     private Date releaseDate;
     private int state;
-
-    @OneToOne(targetEntity = TbTeacherEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "teacherId", unique = true)
     private TbTeacherEntity teacher;
-
-    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "depId", unique = true)
     private TbDepartmentEntity department;
 
     @Id
@@ -139,6 +133,9 @@ public class TbPaperinfoEntity {
         this.state = state;
     }
 
+    @OneToOne(targetEntity = TbTeacherEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "teacherId", unique = true)
+
     public TbTeacherEntity getTeacher() {
         return teacher;
     }
@@ -146,6 +143,9 @@ public class TbPaperinfoEntity {
     public void setTeacher(TbTeacherEntity teacher) {
         this.teacher = teacher;
     }
+
+    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "depId", unique = true)
 
     public TbDepartmentEntity getDepartment() {
         return department;

@@ -6,6 +6,9 @@ import org.hibernate.Transaction;
 import thm.web.entity.TbPaperinfoEntity;
 import thm.web.util.HibernateSessionFactory;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -22,15 +25,30 @@ public class PapersDao {
     }
 
     public int insertPaper(TbPaperinfoEntity paperInfo){
+        String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        Date date = Date.valueOf(currentTime);
+        System.out.println(date);
+
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
-        result = (Integer) session.save(paperInfo);
-        transaction.commit();
-        result = 1;
+        paperInfo.setReleaseDate(date);
+        paperInfo.setDesc("");
+        paperInfo.setVerifyMessage("");
+        paperInfo.setVerifyState(1);
 
-        session.clear();
-        session.close();
+        try {
+            result = (Integer) session.save(paperInfo);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+        }finally {
+            session.clear();
+            session.close();
+        }
+
 
         return result;
     }

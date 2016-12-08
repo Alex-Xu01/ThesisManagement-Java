@@ -13,9 +13,9 @@
 </head>
 <body>
 <h1>申报论文</h1> <hr>
-<form action="teacherFunctionAct" method="post">
-    <input type="number" name="teacherId" value="${TbTeacherEntity.id}">
-    <input type="number" name="depId" value="${}">
+<form action="declarationAndManageAct" method="post">
+    <input type="number" name="teacherId" value="${teacher.id}" style="display: none">
+    <input type="number" name="depId" value="${teacher.department.id}" style="display: none">
     论文题目：<input type="text" name="title"><span style="color: #FF0000">*</span> <br>
     副标题：<input type="text" name="subtitle"><br>
     论文类型：
@@ -34,8 +34,11 @@
     注：“<span style="color: #FF0000">*</span>”为必填项目。<br>
     <input type="submit" value="提交">
 </form>
-<c:forEach items="${errors}" var="errMsg">
-    ${errMsg.value} <br>
+<c:forEach items="${message}" var="msg">
+    ${msg.value} <br>
+</c:forEach>
+<c:forEach items="${errors}" var="err">
+    ${err.value} <br>
 </c:forEach>
 </body>
 </html>

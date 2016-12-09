@@ -36,9 +36,9 @@
             <td>${item.title}</td>
             <td>${item.subtitle}</td>
             <td>${item.type}</td>
-            <td>${item.number}</td>
+            <td>${item.numbers}</td>
             <td>${item.origin}</td>
-            <td>${item.desc}</td>
+            <td>${item.content}</td>
             <td>${item.verifyState}</td>
             <td>${item.verifyMessage}</td>
             <td>${item.releaseDate}</td>
@@ -46,17 +46,14 @@
             <td>${item.depId}</td>
             <td>${item.state}</td>
             <td>
-                <form action="teacherManageAct" method="post">
-                    <select name="teacherManage">
-                        <option value="lookAll">查看详情</option>
-                        <option value="edit">编辑</option>
-                        <option value="delete">修改</option>
-                    </select>
-                    <input type="submit" value="选择">
-                </form>
+                <a href="teacherManageAct.action?paperId=${item.id}&teacherManage=lookAll">查看详情</a>
+                <a href="teacherManageAct.action?paperId=${item.id}">编辑</a>
+                <a href="teacherDeleteAct.action?paperId=${item.id}">删除</a>
             </td>
         </tr>
     </c:forEach>
 </table>
+${updateMsg}
+${deleteMsg}
 </body>
 </html>

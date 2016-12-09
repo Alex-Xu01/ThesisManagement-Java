@@ -19,19 +19,35 @@
 
     <package name="package-defalut" extends="struts-default">
         <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
-            <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp</result>
-            <result name="manage">/WEB-INF/teacher/managePapers.jsp</result>
+            <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp?id=${id}</result>
+            <result name="manage">/WEB-INF/teacher/managePapers.jsp?id=${id}</result>
         </action>
         
         <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
             <result name="lookAll">/WEB-INF/teacher/manage/lookAll.jsp</result>
-            <result name="edit">/WEB-INF/teacher/manage/edit.jsp</result>
-            <result name="delete">/WEB-INF/teacher/manage/delete.jsp</result>
+            <result name="edit" type="chain">
+                <param name="actionName">teacherUpdatePre</param>
+                <param name="paperId">${paperId}</param>
+            </result>
         </action>
 
-        <action name="declarationAndManageAct" class="thm.web.action.declarationAndManageAction">
+        <action name="teacherDeclarationAct" class="thm.web.action.TeacherDeclarationAction">
             <result name="input">/WEB-INF/teacher/declarationPapers.jsp</result>
-            <result name="success">/WEB-INF/teacher/declarationPapers.jsp</result>
+            <result name="success">/WEB-INF/roles/teacher.jsp</result>
+        </action>
+
+        <action name="teacherUpdateAct" class="thm.web.action.TeacherManageAction" method="update">
+            <result name="success" type="redirectAction">teacherFunctionAct?functionChoice=manage</result>
+            <result name="input">/WEB-INF/teacher/managePapers.jsp</result>
+        </action>
+
+        <action name="teacherUpdatePre" class="thm.web.action.TeacherManageAction" method="updatePre">
+            <result name="success">/WEB-INF/teacher/manage/edit.jsp?paperId=${paperId}</result>
+        </action>
+
+        <action name="teacherDeleteAct" class="thm.web.action.TeacherManageAction" method="delete">
+            <result name="success" type="redirectAction">teacherFunctionAct?functionChoice=manage</result>
+            <result name="input">/WEB-INF/teacher/managePapers.jsp</result>
         </action>
     </package>
 </struts>

@@ -33,9 +33,10 @@ public class PapersDao {
         Transaction transaction = session.beginTransaction();
 
         paperInfo.setReleaseDate(date);
-        paperInfo.setDesc("");
+        paperInfo.setContent("");
         paperInfo.setVerifyMessage("");
         paperInfo.setVerifyState(1);
+        System.out.println(paperInfo);
 
         try {
             result = (Integer) session.save(paperInfo);
@@ -44,16 +45,65 @@ public class PapersDao {
         }catch (Exception e){
             if (transaction != null)
                 transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
+        return result;
+    }
+
+    public TbPaperinfoEntity get(int id){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        TbPaperinfoEntity paperInfo = (TbPaperinfoEntity) session.get(TbPaperinfoEntity.class, id);
+
+        return paperInfo;
+    }
+
+    public List<TbPaperinfoEntity> queryByTeacher(int id){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.teacherId =" + id);
+
+        return query.list();
+    }
+
+    public int update(TbPaperinfoEntity paperInfo){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.clear();
+            session.update(paperInfo);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
         }finally {
             session.clear();
             session.close();
         }
 
-
         return result;
     }
 
-    public int deleteItem(int id){
+    public int delete(TbPaperinfoEntity paperInfo){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(paperInfo);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
         return result;
     }
 }

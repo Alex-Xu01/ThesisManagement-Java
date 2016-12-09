@@ -15,7 +15,7 @@ public class TbTeacherEntity {
     private String title;
     private String specialty;
     private int state;
-    private TbDepartmentEntity department;
+    private int depId;
     private TbAccountEntity account;
 
     @Id
@@ -88,15 +88,12 @@ public class TbTeacherEntity {
         this.state = state;
     }
 
-    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "depId", unique = true)
-
-    public TbDepartmentEntity getDepartment() {
-        return department;
+    public int getDepId() {
+        return depId;
     }
 
-    public void setDepartment(TbDepartmentEntity department) {
-        this.department = department;
+    public void setDepId(int depId) {
+        this.depId = depId;
     }
 
     @OneToOne(targetEntity = TbAccountEntity.class, fetch = FetchType.EAGER)
@@ -138,5 +135,20 @@ public class TbTeacherEntity {
         result = 31 * result + (specialty != null ? specialty.hashCode() : 0);
         result = 31 * result + state;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TbTeacherEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", title='" + title + '\'' +
+                ", specialty='" + specialty + '\'' +
+                ", state=" + state +
+                ", depId=" + depId +
+                ", account=" + account +
+                '}';
     }
 }

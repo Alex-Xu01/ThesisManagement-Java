@@ -13,15 +13,15 @@ public class TbPaperinfoEntity {
     private String title;
     private String subtitle;
     private String type;
-    private int number;
+    private int numbers;
     private String origin;
-    private String desc;
+    private String content;
     private int verifyState;
     private String verifyMessage;
     private Date releaseDate;
     private int state;
-    private TbTeacherEntity teacher;
-    private TbDepartmentEntity department;
+    private int teacherId;
+    private int depId;
 
     @Id
     @Column(name = "id")
@@ -64,13 +64,13 @@ public class TbPaperinfoEntity {
     }
 
     @Basic
-    @Column(name = "number")
-    public int getNumber() {
-        return number;
+    @Column(name = "numbers")
+    public int getNumbers() {
+        return numbers;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumbers(int numbers) {
+        this.numbers = numbers;
     }
 
     @Basic
@@ -84,13 +84,13 @@ public class TbPaperinfoEntity {
     }
 
     @Basic
-    @Column(name = "desc")
-    public String getDesc() {
-        return desc;
+    @Column(name = "content")
+    public String getContent() {
+        return content;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setContent(String desc) {
+        this.content = desc;
     }
 
     @Basic
@@ -133,26 +133,20 @@ public class TbPaperinfoEntity {
         this.state = state;
     }
 
-    @OneToOne(targetEntity = TbTeacherEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "teacherId", unique = true)
-
-    public TbTeacherEntity getTeacher() {
-        return teacher;
+    public int getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacher(TbTeacherEntity teacher) {
-        this.teacher = teacher;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
-    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "depId", unique = true)
-
-    public TbDepartmentEntity getDepartment() {
-        return department;
+    public int getDepId() {
+        return depId;
     }
 
-    public void setDepartment(TbDepartmentEntity department) {
-        this.department = department;
+    public void setDepId(int depId) {
+        this.depId = depId;
     }
 
     @Override
@@ -163,14 +157,14 @@ public class TbPaperinfoEntity {
         TbPaperinfoEntity that = (TbPaperinfoEntity) o;
 
         if (id != that.id) return false;
-        if (number != that.number) return false;
+        if (numbers != that.numbers) return false;
         if (verifyState != that.verifyState) return false;
         if (state != that.state) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (subtitle != null ? !subtitle.equals(that.subtitle) : that.subtitle != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (origin != null ? !origin.equals(that.origin) : that.origin != null) return false;
-        if (desc != null ? !desc.equals(that.desc) : that.desc != null) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
         if (verifyMessage != null ? !verifyMessage.equals(that.verifyMessage) : that.verifyMessage != null)
             return false;
         if (releaseDate != null ? !releaseDate.equals(that.releaseDate) : that.releaseDate != null) return false;
@@ -184,13 +178,32 @@ public class TbPaperinfoEntity {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (subtitle != null ? subtitle.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + number;
+        result = 31 * result + numbers;
         result = 31 * result + (origin != null ? origin.hashCode() : 0);
-        result = 31 * result + (desc != null ? desc.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + verifyState;
         result = 31 * result + (verifyMessage != null ? verifyMessage.hashCode() : 0);
         result = 31 * result + (releaseDate != null ? releaseDate.hashCode() : 0);
         result = 31 * result + state;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TbPaperinfoEntity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", subtitle='" + subtitle + '\'' +
+                ", type='" + type + '\'' +
+                ", number=" + numbers +
+                ", origin='" + origin + '\'' +
+                ", desc='" + content + '\'' +
+                ", verifyState=" + verifyState +
+                ", verifyMessage='" + verifyMessage + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", state=" + state +
+                ", teacherId=" + teacherId +
+                ", depId=" + depId +
+                '}';
     }
 }

@@ -9,19 +9,19 @@ import thm.web.entity.TbTeacherEntity;
 /**
  * Created by Tulip on 2016/12/8 0008.
  */
-public class declarationAndManageAction extends ActionSupport{
+public class TeacherDeclarationAction extends ActionSupport{
     private int id;
     private int teacherId;
     private int depId;
     private String title;
     private String subtitle;
     private String type;
-    private int number;
+    private int numbers;
     private String origin;
-    private String desc;
+    private String content;
     private int result = 0;
     private String message;
-    private TbTeacherEntity teacher;
+    private TbTeacherEntity teacher = new TbTeacherEntity();
     private TbPaperinfoEntity paperinfo = new TbPaperinfoEntity();
 
     @Override
@@ -29,7 +29,12 @@ public class declarationAndManageAction extends ActionSupport{
         TeacherDao teacherDao = new TeacherDao();
         PapersDao papersDao = new PapersDao();
 
+        System.out.println(id);
         teacher = teacherDao.get(id);
+        System.out.println(teacher);
+        paperinfo.setTeacherId(teacher.getId());
+        paperinfo.setDepId(teacher.getDepId());
+        System.out.println("action:" + paperinfo);
 
         if (papersDao.insertPaper(paperinfo) > 0) {
             message = "申报成功！";
@@ -88,12 +93,12 @@ public class declarationAndManageAction extends ActionSupport{
         this.type = type;
     }
 
-    public int getNumber() {
-        return number;
+    public int getNumbers() {
+        return numbers;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumbers(int numbers) {
+        this.numbers = numbers;
     }
 
     public String getOrigin() {
@@ -104,12 +109,12 @@ public class declarationAndManageAction extends ActionSupport{
         this.origin = origin;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getContent() {
+        return content;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getResult() {

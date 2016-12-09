@@ -10,6 +10,7 @@ import java.util.List;
  * Created by Tulip on 2016/12/5 0005.
  */
 public class TeacherFunctionAction extends ActionSupport{
+    private int id;
     private String functionChoice;
     private List<TbPaperinfoEntity> paperList;
     private TbPaperinfoEntity paperInfo = new TbPaperinfoEntity();
@@ -24,6 +25,14 @@ public class TeacherFunctionAction extends ActionSupport{
             paperList = papersDao.queryAll();
             return "manage";
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFunctionChoice() {

@@ -22,6 +22,8 @@ public class TeacherManageAction extends ActionSupport {
     private PapersDao papersDao = new PapersDao();
     private String updateMsg;
     private String deleteMsg;
+    private String verifyMsg;
+    private String updatePreFor;
 
     @Override
     public String execute() throws Exception {
@@ -35,7 +37,11 @@ public class TeacherManageAction extends ActionSupport {
     public String updatePre() throws Exception{
         paperInfo = papersDao.get(paperId);
 
-        return SUCCESS;
+        if ("edit".equals(updatePreFor))
+            return "edit";
+        //if ("adminVerify".equals(updatePreFor))
+        else
+            return "adminVerify";
     }
 
     public String update() throws Exception{
@@ -45,6 +51,18 @@ public class TeacherManageAction extends ActionSupport {
         }
         else{
             updateMsg = "更新失败！";
+            return INPUT;
+        }
+    }
+
+    public String updateVerifyState() throws Exception{
+
+        if (papersDao.update(paperInfo) > 0){
+            verifyMsg = "审核成功！";
+            return SUCCESS;
+        }
+        else{
+            verifyMsg = "审核失败！";
             return INPUT;
         }
     }
@@ -171,5 +189,21 @@ public class TeacherManageAction extends ActionSupport {
 
     public void setDeleteMsg(String deleteMsg) {
         this.deleteMsg = deleteMsg;
+    }
+
+    public String getVerifyMsg() {
+        return verifyMsg;
+    }
+
+    public void setVerifyMsg(String verifyMsg) {
+        this.verifyMsg = verifyMsg;
+    }
+
+    public String getUpdatePreFor() {
+        return updatePreFor;
+    }
+
+    public void setUpdatePreFor(String updatePreFor) {
+        this.updatePreFor = updatePreFor;
     }
 }

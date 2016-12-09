@@ -28,6 +28,7 @@
         <th>系部编号</th>
         <th>论文状态</th>
     </tr>
+    <tr>
         <td>${paperInfo.title}</td>
         <td>${paperInfo.subtitle}</td>
         <td>${paperInfo.type}</td>
@@ -40,7 +41,7 @@
         <td>${paperInfo.teacherId}</td>
         <td>${paperInfo.depId}</td>
         <td>${paperInfo.state}</td>
-
+    </tr>
 </table>
 </body>
 </html>

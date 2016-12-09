@@ -89,4 +89,15 @@ public class TbDepartmentEntity {
         result = 31 * result + state;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "TbDepartmentEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", address='" + address + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }

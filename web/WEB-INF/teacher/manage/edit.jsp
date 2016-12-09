@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>编辑论文</h1> <hr>
-<form action="teacherUpdateAct.action" method="post">
+<form action="teacherUpdateAct.action?updatePreFor=edit" method="post">
     <input type="number" name="paperInfo.id" value="${paperId}" style="display: none">
     <input type="number" name="paperInfo.teacherId" value="${paperInfo.teacherId}" style="display: none">
     <input type="number" name="paperInfo.depId" value="${paperInfo.depId}" style="display: none">

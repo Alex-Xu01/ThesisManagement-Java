@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8de1389f-9dd4-470a-857d-0700f1ab426a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thm/web/action/AdminManageAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thm/web/action/Dispatcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thm/web/action/QueryAll.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thm/web/dao/DepDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/admin/manage/insertAccount.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/admin/manage/insertDep.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/admin/manage/updateAccount.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/admin/manage/updateDep.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/admin/reviewsPaper.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/show/showAllAccount.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/show/showAllDep.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/show/showAllPapers.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/thm/web/dao/CommonDao.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thm/web/action/TeacherManageAction.java" afterPath="$PROJECT_DIR$/src/thm/web/action/TeacherManageAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thm/web/dao/LoginDao.java" afterPath="$PROJECT_DIR$/src/thm/web/dao/LoginDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thm/web/entity/TbDepartmentEntity.java" afterPath="$PROJECT_DIR$/src/thm/web/entity/TbDepartmentEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/roles/admin.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/roles/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/teacher/manage/edit.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/teacher/manage/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/teacher/manage/lookAll.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/teacher/manage/lookAll.jsp" />
     </list>
     <ignored path="ThesisManagement.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1252,7 +1232,7 @@
       <workItem from="1481242018479" duration="6334000" />
       <workItem from="1481248723973" duration="3280000" />
       <workItem from="1481252035682" duration="15579000" />
-      <workItem from="1481277488307" duration="11513000" />
+      <workItem from="1481277488307" duration="11605000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1480842958387</created>
@@ -1265,7 +1245,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90664000" />
+    <option name="totallyTimeSpent" value="90756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

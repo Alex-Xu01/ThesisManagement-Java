@@ -17,7 +17,7 @@
         </action>
     </package>
 
-    <package name="package-defalut" extends="struts-default">
+    <package name="package-teacher" extends="struts-default">
         <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
             <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp?id=${id}</result>
             <result name="manage">/WEB-INF/teacher/managePapers.jsp?id=${id}</result>
@@ -42,12 +42,80 @@
         </action>
 
         <action name="teacherUpdatePre" class="thm.web.action.TeacherManageAction" method="updatePre">
-            <result name="success">/WEB-INF/teacher/manage/edit.jsp?paperId=${paperId}</result>
+            <result name="edit">/WEB-INF/teacher/manage/edit.jsp?paperId=${paperId}</result>
+            <result name="adminVerify">/WEB-INF/admin/reviewsPaper.jsp?paperId=${paperId}</result>
         </action>
 
         <action name="teacherDeleteAct" class="thm.web.action.TeacherManageAction" method="delete">
             <result name="success" type="redirectAction">teacherFunctionAct?functionChoice=manage</result>
             <result name="input">/WEB-INF/teacher/managePapers.jsp</result>
+        </action>
+    </package>
+
+    <package name="package-admin" extends="struts-default">
+        <action name="insertDepAct" class="thm.web.action.AdminManageAction" method="insertDep">
+            <result name="success" type="chain">queryAllDep</result>
+            <result name="input" type="chain">queryAllDep</result>
+        </action>
+
+        <action name="updateDepPre" class="thm.web.action.AdminManageAction" method="updateDepPre">
+            <result name="success">/WEB-INF/admin/manage/updateDep.jsp</result>
+        </action>
+
+        <action name="updateDepAct" class="thm.web.action.AdminManageAction" method="updateDep">
+            <result name="success" type="chain">queryAllDep</result>
+            <result name="input" type="chain">queryAllDep</result>
+        </action>
+
+        <action name="deleteDepAct" class="thm.web.action.AdminManageAction" method="deleteDep">
+            <result name="success" type="chain">queryAllDep</result>
+            <result name="input" type="chain">queryAllDep</result>
+        </action>
+
+        <action name="insertAccountAct" class="thm.web.action.AdminManageAction" method="insertAccount">
+            <result name="success" type="chain">queryAllAccount</result>
+            <result name="input" type="chain">queryAllAccount</result>
+        </action>
+
+        <action name="updateAccountPre" class="thm.web.action.AdminManageAction" method="updateAccountPre">
+            <result name="success">/WEB-INF/admin/manage/updateAccount.jsp</result>
+        </action>
+
+        <action name="updateAccountAct" class="thm.web.action.AdminManageAction" method="updateAccount">
+            <result name="success" type="chain">queryAllAccount</result>
+            <result name="input" type="chain">queryAllAccount</result>
+        </action>
+
+        <action name="deleteAccountAct" class="thm.web.action.AdminManageAction" method="deleteAccount">
+            <result name="success" type="chain">queryAllAccount</result>
+            <result name="input" type="chain">queryAllAccount</result>
+        </action>
+
+        <action name="adminVerifyAct" class="thm.web.action.TeacherManageAction" method="updateVerifyState">
+            <result name="success" type="chain">queryAllPapers</result>
+            <result name="input">/WEB-INF/admin/reviewsPaper.jsp</result>
+        </action>
+    </package>
+
+    <package name="package-default" extends="struts-default">
+        <action name="queryAllPapers" class="thm.web.action.QueryAll" method="quertAllPapers">
+            <result name="success">/WEB-INF/show/showAllPapers.jsp</result>
+        </action>
+
+        <action name="queryAllDep" class="thm.web.action.QueryAll" method="queryAllDep">
+            <result name="success">/WEB-INF/show/showAllDep.jsp</result>
+        </action>
+
+        <action name="queryAllAccount" class="thm.web.action.QueryAll" method="queryAllAccount">
+            <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
+        </action>
+
+        <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
+            <result name="insertDep">/WEB-INF/admin/manage/insertDep.jsp</result>
+        </action>
+
+        <action name="dispatcherInsertAccount" class="thm.web.action.Dispatcher" method="toInsertAccount">
+            <result name="insertAccount">/WEB-INF/admin/manage/insertAccount.jsp</result>
         </action>
     </package>
 </struts>

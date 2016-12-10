@@ -3,52 +3,36 @@ package thm.web.dao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import thm.web.entity.TbAccountEntity;
+import thm.web.entity.TbDepartmentEntity;
 import thm.web.util.HibernateSessionFactory;
 
 import java.util.List;
 
 /**
- * Created by Tulip on 2016/12/5 005.
+ * Created by Tulip on 2016/12/9 0009.
  */
-public class LoginDao {
+public class DepDao {
     private int result = 0;
 
-    public List<TbAccountEntity> queryAll(){
+    public List<TbDepartmentEntity> queryAll(){
         Session session = new HibernateSessionFactory().getCurrentSession();
-        Query query = session.createQuery("from TbAccountEntity as a order by a.id");
+        Query query = session.createQuery("from TbDepartmentEntity as d order by d.id");
 
         return query.list();
     }
 
-    public List<TbAccountEntity> queryInfo(String loginName){
+    public TbDepartmentEntity get(int id){
         Session session = new HibernateSessionFactory().getCurrentSession();
-        Query query = session.createQuery("from TbAccountEntity as a where a.loginName = '" + loginName + "'");
-        return query.list();
+        TbDepartmentEntity dep = (TbDepartmentEntity) session.get(TbDepartmentEntity.class, id);
+
+        return dep;
     }
-
-    public List<TbAccountEntity> queryAccount(int first, int size){
-        Session session = new HibernateSessionFactory().getCurrentSession();
-        Query query = session.createQuery("from TbAccountEntity a order by a.role");
-
-        query.setFirstResult(first);
-        query.setMaxResults(size);
-
-        return query.list();
-    }
-
-    public TbAccountEntity get(int id){
-        Session session = new HibernateSessionFactory().getCurrentSession();
-        TbAccountEntity account = (TbAccountEntity) session.get(TbAccountEntity.class, id);
-
-        return account;
-    }
-    public int insert(TbAccountEntity account){
+    public int insert(TbDepartmentEntity dep){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            session.save(account);
+            session.save(dep);
             transaction.commit();
             result = 1;
         }catch (Exception e){
@@ -63,13 +47,13 @@ public class LoginDao {
         return result;
     }
 
-    public int update(TbAccountEntity account){
+    public int update(TbDepartmentEntity dep){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
-        System.out.println("Dao : " + account.toString());
+        System.out.println("Dao : " + dep.toString());
 
         try {
-            session.update(account);
+            session.update(dep);
             transaction.commit();
             result = 1;
         }catch (Exception e){
@@ -84,12 +68,12 @@ public class LoginDao {
         return result;
     }
 
-    public int delete(TbAccountEntity account){
+    public int delete(TbDepartmentEntity dep){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            session.delete(account);
+            session.delete(dep);
             transaction.commit();
             result = 1;
         }catch (Exception e){

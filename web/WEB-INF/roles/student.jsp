@@ -11,6 +11,8 @@
     <title>学生页面</title>
 </head>
 <body>
-<h1>您的身份是学生！</h1>
+<h1>您的身份是学生！您的ID是${id}</h1>
+<a href="queryPassPapers.action?studentId=${id}">查看论文题目</a>
+<a href="showChoose.action?studentId=${id}">查看已选论文</a>
 </body>
 </html>

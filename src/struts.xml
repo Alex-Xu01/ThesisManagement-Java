@@ -25,10 +25,8 @@
         
         <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
             <result name="lookAll">/WEB-INF/teacher/manage/lookAll.jsp</result>
-            <result name="edit" type="chain">
-                <param name="actionName">teacherUpdatePre</param>
-                <param name="paperId">${paperId}</param>
-            </result>
+            <result name="edit" type="redirectAction">teacherUpdatePre?paperId=${paperId}&amp;updatePreFor=edit</result>
+            <result name="chosen">/WEB-INF/student/paperDetails.jsp</result>
         </action>
 
         <action name="teacherDeclarationAct" class="thm.web.action.TeacherDeclarationAction">
@@ -110,12 +108,27 @@
             <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
         </action>
 
+        <action name="queryPassPapers" class="thm.web.action.QueryAll" method="queryPassPapers">
+            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${studentId}</result>
+        </action>
+
         <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
             <result name="insertDep">/WEB-INF/admin/manage/insertDep.jsp</result>
         </action>
 
         <action name="dispatcherInsertAccount" class="thm.web.action.Dispatcher" method="toInsertAccount">
             <result name="insertAccount">/WEB-INF/admin/manage/insertAccount.jsp</result>
+        </action>
+    </package>
+    
+    <package name="package-student" extends="struts-default">
+        <action name="choosePaperAct" class="thm.web.action.StudentFunctionAction" method="choosePaper">
+            <result name="input" type="chain">queryPassPapers</result>
+            <result name="success" type="redirectAction">showChoose?studentId=${studentId}</result>
+        </action>
+
+        <action name="showChoose" class="thm.web.action.StudentFunctionAction" method="lookChoose">
+            <result name="success">/WEB-INF/student/chosenPaper.jsp</result>
         </action>
     </package>
 </struts>

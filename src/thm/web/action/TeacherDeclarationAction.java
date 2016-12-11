@@ -11,15 +11,12 @@ import thm.web.entity.TbTeacherEntity;
  */
 public class TeacherDeclarationAction extends ActionSupport{
     private int id;
-    private int teacherId;
-    private int depId;
     private String title;
     private String subtitle;
     private String type;
     private int numbers;
     private String origin;
     private String content;
-    private int result = 0;
     private String message;
     private TbTeacherEntity teacher = new TbTeacherEntity();
     private TbPaperinfoEntity paperinfo = new TbPaperinfoEntity();
@@ -32,8 +29,8 @@ public class TeacherDeclarationAction extends ActionSupport{
         System.out.println(id);
         teacher = teacherDao.get(id);
         System.out.println(teacher);
-        paperinfo.setTeacherId(teacher.getId());
-        paperinfo.setDepId(teacher.getDepId());
+        paperinfo.setTeacher(teacher);
+        paperinfo.setDep(teacher.getDep());
         System.out.println("action:" + paperinfo);
 
         if (papersDao.insertPaper(paperinfo) > 0) {
@@ -51,22 +48,6 @@ public class TeacherDeclarationAction extends ActionSupport{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public int getDepId() {
-        return depId;
-    }
-
-    public void setDepId(int depId) {
-        this.depId = depId;
     }
 
     public String getTitle() {
@@ -115,14 +96,6 @@ public class TeacherDeclarationAction extends ActionSupport{
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
     }
 
     public String getMessage() {

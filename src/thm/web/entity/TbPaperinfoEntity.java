@@ -20,8 +20,8 @@ public class TbPaperinfoEntity {
     private String verifyMessage;
     private Date releaseDate;
     private int state;
-    private int teacherId;
-    private int depId;
+    private TbDepartmentEntity dep;
+    private TbTeacherEntity teacher;
 
     @Id
     @Column(name = "id")
@@ -133,20 +133,24 @@ public class TbPaperinfoEntity {
         this.state = state;
     }
 
-    public int getTeacherId() {
-        return teacherId;
+    @OneToOne(targetEntity = TbTeacherEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "teacherId", unique = true)
+    public TbTeacherEntity getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(TbTeacherEntity teacher) {
+        this.teacher = teacher;
     }
 
-    public int getDepId() {
-        return depId;
+    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "depId", unique = true)
+    public TbDepartmentEntity getDep() {
+        return dep;
     }
 
-    public void setDepId(int depId) {
-        this.depId = depId;
+    public void setDep(TbDepartmentEntity dep) {
+        this.dep = dep;
     }
 
     @Override
@@ -195,15 +199,15 @@ public class TbPaperinfoEntity {
                 ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +
                 ", type='" + type + '\'' +
-                ", number=" + numbers +
+                ", numbers=" + numbers +
                 ", origin='" + origin + '\'' +
-                ", desc='" + content + '\'' +
+                ", content='" + content + '\'' +
                 ", verifyState=" + verifyState +
                 ", verifyMessage='" + verifyMessage + '\'' +
                 ", releaseDate=" + releaseDate +
                 ", state=" + state +
-                ", teacherId=" + teacherId +
-                ", depId=" + depId +
+                ", dep=" + dep +
+                ", teacher=" + teacher +
                 '}';
     }
 }

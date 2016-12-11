@@ -33,8 +33,8 @@
         <td>${paperInfo.origin}</td>
         <td>${paperInfo.content}</td>
         <td>${paperInfo.releaseDate}</td>
-        <td>${paperInfo.teacherId}</td>
-        <td>${paperInfo.depId}</td>
+        <td>${paperInfo.teacher.id}</td>
+        <td>${paperInfo.dep.id}</td>
         <td>${paperInfo.state}</td>
     </tr>
 </table>
@@ -47,8 +47,8 @@
     审核说明<textarea name="paperInfo.verifyMessage" rows="10" cols="40"></textarea>
     <input type="submit" value="确定">
     <input type="number" name="paperInfo.id" value="${paperId}" style="display: none">
-    <input type="number" name="paperInfo.teacherId" value="${paperInfo.teacherId}" style="display: none">
-    <input type="number" name="paperInfo.depId" value="${paperInfo.depId}" style="display: none">
+    <input type="number" name="paperInfo.teacher.id" value="${paperInfo.teacher.id}" style="display: none">
+    <input type="number" name="paperInfo.dep.id" value="${paperInfo.dep.id}" style="display: none">
     <input type="date" name="paperInfo.releaseDate" value="${paperInfo.releaseDate}" style="display: none">
     <input type="text" name="paperInfo.title" value="${paperInfo.title}" style="display: none"> <br>
     <input type="text" name="paperInfo.subtitle" value="${paperInfo.subtitle}" style="display: none"><br>

@@ -15,8 +15,8 @@ public class TbTeacherEntity {
     private String title;
     private String specialty;
     private int state;
-    private int depId;
     private TbAccountEntity account;
+    private TbDepartmentEntity dep;
 
     @Id
     @Column(name = "id")
@@ -88,23 +88,24 @@ public class TbTeacherEntity {
         this.state = state;
     }
 
-    public int getDepId() {
-        return depId;
-    }
-
-    public void setDepId(int depId) {
-        this.depId = depId;
-    }
-
     @OneToOne(targetEntity = TbAccountEntity.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "accountId", unique = true)
-
     public TbAccountEntity getAccount() {
         return account;
     }
 
     public void setAccount(TbAccountEntity account) {
         this.account = account;
+    }
+
+    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "depId", unique = true)
+    public TbDepartmentEntity getDep() {
+        return dep;
+    }
+
+    public void setDep(TbDepartmentEntity dep) {
+        this.dep = dep;
     }
 
     @Override
@@ -147,8 +148,8 @@ public class TbTeacherEntity {
                 ", title='" + title + '\'' +
                 ", specialty='" + specialty + '\'' +
                 ", state=" + state +
-                ", depId=" + depId +
                 ", account=" + account +
+                ", dep=" + dep +
                 '}';
     }
 }

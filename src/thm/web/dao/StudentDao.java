@@ -3,37 +3,30 @@ package thm.web.dao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import thm.web.entity.TbTeacherEntity;
+import thm.web.entity.TbStudentEntity;
 import thm.web.util.HibernateSessionFactory;
 
 /**
- * Created by Tulip on 2016/12/8 0008.
+ * Created by Tulip on 2016/12/11 0011.
  */
-public class TeacherDao {
+public class StudentDao {
     private int result = 0;
 
-    public TbTeacherEntity get(int id){
+    public TbStudentEntity queryByAccountId(int accountId){
         Session session = new HibernateSessionFactory().getCurrentSession();
-        TbTeacherEntity teacher = (TbTeacherEntity) session.get(TbTeacherEntity.class, id);
+        Query query = session.createQuery("from TbStudentEntity as s where s.accountId = " + accountId);
 
-        return teacher;
+        return (TbStudentEntity) query.uniqueResult();
     }
 
-    public TbTeacherEntity queryByAccountId(int accountId){
-        Session session = new HibernateSessionFactory().getCurrentSession();
-        Query query = session.createQuery("from TbTeacherEntity as t where t.account.id = " + accountId);
-
-        return (TbTeacherEntity) query.uniqueResult();
-    }
-
-    public int update(TbTeacherEntity teacher){
+    public int update(TbStudentEntity student){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
         try{
-            System.out.println(teacher.toString());
+            System.out.println(student.toString());
             session.clear();
-            session.update(teacher);
+            session.update(student);
             transaction.commit();
             result = 1;
         }catch (Exception e){

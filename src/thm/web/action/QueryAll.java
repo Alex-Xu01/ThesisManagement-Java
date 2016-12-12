@@ -17,6 +17,8 @@ public class QueryAll extends ActionSupport {
     private List<TbPaperinfoEntity> paperList;
     private List<TbDepartmentEntity> depList;
     private List<TbAccountEntity> accountList;
+    private List<TbPaperinfoEntity> passPaperList;
+    private int studentId;
 
     public String quertAllPapers() throws Exception {
         PapersDao papersDao = new PapersDao();
@@ -41,6 +43,14 @@ public class QueryAll extends ActionSupport {
         return SUCCESS;
     }
 
+    public String queryPassPapers(){
+        PapersDao papersDao = new PapersDao();
+        passPaperList = papersDao.queryPassPapers();
+
+        return SUCCESS;
+    }
+
+
     public List<TbPaperinfoEntity> getPaperList() {
         return paperList;
     }
@@ -63,5 +73,21 @@ public class QueryAll extends ActionSupport {
 
     public void setAccountList(List<TbAccountEntity> accountList) {
         this.accountList = accountList;
+    }
+
+    public List<TbPaperinfoEntity> getPassPaperList() {
+        return passPaperList;
+    }
+
+    public void setPassPaperList(List<TbPaperinfoEntity> passPaperList) {
+        this.passPaperList = passPaperList;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 }

@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>申报论文</h1> <hr>
-<form action="teacherDeclarationAct" method="post">
+<form action="teacherDeclarationAct.action" method="post">
     <input type="number" name="id" value="${id}" style="display: none">
     论文题目：<input type="text" name="paperinfo.title"><br>
     副标题：<input type="text" name="paperinfo.subtitle"><br>

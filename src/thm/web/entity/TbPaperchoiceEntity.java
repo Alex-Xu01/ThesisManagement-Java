@@ -10,6 +10,10 @@ import javax.persistence.*;
 public class TbPaperchoiceEntity {
     private int id;
     private int state;
+    private int teacherId;
+    private int studentId;
+    private int depId;
+    private TbPaperinfoEntity paper;
 
     @Id
     @Column(name = "id")
@@ -31,6 +35,40 @@ public class TbPaperchoiceEntity {
         this.state = state;
     }
 
+    @OneToOne(targetEntity = TbPaperinfoEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "paperId", unique = true)
+    public TbPaperinfoEntity getPaper() {
+        return paper;
+    }
+
+    public void setPaper(TbPaperinfoEntity paper) {
+        this.paper = paper;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getDepId() {
+        return depId;
+    }
+
+    public void setDepId(int depId) {
+        this.depId = depId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,5 +87,17 @@ public class TbPaperchoiceEntity {
         int result = id;
         result = 31 * result + state;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TbPaperchoiceEntity{" +
+                "id=" + id +
+                ", state=" + state +
+                ", teacherId=" + teacherId +
+                ", studentId=" + studentId +
+                ", depId=" + depId +
+                ", paper=" + paper +
+                '}';
     }
 }

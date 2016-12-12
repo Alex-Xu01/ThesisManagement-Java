@@ -14,8 +14,8 @@
 <h1>编辑论文</h1> <hr>
 <form action="teacherUpdateAct.action?updatePreFor=edit" method="post">
     <input type="number" name="paperInfo.id" value="${paperId}" style="display: none">
-    <input type="number" name="paperInfo.teacherId" value="${paperInfo.teacherId}" style="display: none">
-    <input type="number" name="paperInfo.depId" value="${paperInfo.depId}" style="display: none">
+    <input type="number" name="paperInfo.teacher.id" value="${paperInfo.teacher.id}" style="display: none">
+    <input type="number" name="paperInfo.dep.id" value="${paperInfo.dep.id}" style="display: none">
     <input type="date" name="paperInfo.releaseDate" value="${paperInfo.releaseDate}" style="display: none">
     修改论文题目：<input type="text" name="paperInfo.title" value="${paperInfo.title}"> <br>
     修改副标题：<input type="text" name="paperInfo.subtitle" value="${paperInfo.subtitle}"><br>

@@ -14,9 +14,9 @@ public class TbStudentEntity {
     private String email;
     private String gender;
     private String picPath;
-    private int depId;
     private int accountId;
     private int state;
+    private TbDepartmentEntity dep;
 
     @Id
     @Column(name = "id")
@@ -78,14 +78,14 @@ public class TbStudentEntity {
         this.picPath = picPath;
     }
 
-    @Basic
-    @Column(name = "depId")
-    public int getDepId() {
-        return depId;
+    @OneToOne(targetEntity = TbDepartmentEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "depId", unique = true)
+    public TbDepartmentEntity getDep() {
+        return dep;
     }
 
-    public void setDepId(int depId) {
-        this.depId = depId;
+    public void setDep(TbDepartmentEntity dep) {
+        this.dep = dep;
     }
 
     @Basic
@@ -116,7 +116,6 @@ public class TbStudentEntity {
         TbStudentEntity that = (TbStudentEntity) o;
 
         if (id != that.id) return false;
-        if (depId != that.depId) return false;
         if (accountId != that.accountId) return false;
         if (state != that.state) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -136,9 +135,23 @@ public class TbStudentEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (picPath != null ? picPath.hashCode() : 0);
-        result = 31 * result + depId;
         result = 31 * result + accountId;
         result = 31 * result + state;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TbStudentEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", picPath='" + picPath + '\'' +
+                ", accountId=" + accountId +
+                ", state=" + state +
+                ", dep=" + dep +
+                '}';
     }
 }

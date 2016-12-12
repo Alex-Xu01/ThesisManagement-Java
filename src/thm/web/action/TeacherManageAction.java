@@ -30,12 +30,17 @@ public class TeacherManageAction extends ActionSupport {
         if ("lookAll".equals(teacherManage)){
             paperInfo = papersDao.get(paperId);
             return "lookAll";
-        }else
+        }else if("edit".equals(teacherManage))
             return "edit";
+        else{
+            paperInfo = papersDao.get(paperId);
+            return "chosen";
+        }
     }
 
     public String updatePre() throws Exception{
         paperInfo = papersDao.get(paperId);
+        System.out.println(updatePreFor);
 
         if ("edit".equals(updatePreFor))
             return "edit";

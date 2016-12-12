@@ -22,5 +22,8 @@
 </form>
 <a href="teacherFunctionAct.action?functionChoice=reporting&id=${id}">申报论文</a>
 <a href="teacherFunctionAct.action?functionChoice=manage&id=${id}">管理论文</a>
+<a href="dispatcherEditAccount.action?id=${id}">修改账户信息</a>
+<a href="dispatcherEditTeacher.action?id=${id}">修改用户信息</a>
+${updateMsg}
 </body>
 </html>

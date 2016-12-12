@@ -42,8 +42,8 @@
             <td>${item.verifyState}</td>
             <td>${item.verifyMessage}</td>
             <td>${item.releaseDate}</td>
-            <td>${item.teacherId}</td>
-            <td>${item.depId}</td>
+            <td>${item.teacher.id}</td>
+            <td>${item.dep.id}</td>
             <td>${item.state}</td>
             <td>
                 <a href="teacherManageAct.action?paperId=${item.id}&teacherManage=lookAll">查看详情</a>

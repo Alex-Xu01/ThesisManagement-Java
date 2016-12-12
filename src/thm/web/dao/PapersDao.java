@@ -24,6 +24,13 @@ public class PapersDao {
         return query.list();
     }
 
+    public List<TbPaperinfoEntity> queryPassPapers(){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.verifyState = 1 and pi.numbers > 0");
+
+        return query.list();
+    }
+
     public int insertPaper(TbPaperinfoEntity paperInfo){
         String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         Date date = Date.valueOf(currentTime);
@@ -35,7 +42,7 @@ public class PapersDao {
         paperInfo.setReleaseDate(date);
         paperInfo.setContent("");
         paperInfo.setVerifyMessage("");
-        paperInfo.setVerifyState(1);
+        paperInfo.setVerifyState(0);
         System.out.println(paperInfo);
 
         try {

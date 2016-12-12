@@ -95,7 +95,7 @@
         </action>
     </package>
 
-    <package name="package-default" extends="struts-default">
+    <package name="package-common" extends="struts-default">
         <action name="queryAllPapers" class="thm.web.action.QueryAll" method="quertAllPapers">
             <result name="success">/WEB-INF/show/showAllPapers.jsp</result>
         </action>
@@ -113,11 +113,36 @@
         </action>
 
         <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
-            <result name="insertDep">/WEB-INF/admin/manage/insertDep.jsp</result>
+            <result name="success">/WEB-INF/admin/manage/insertDep.jsp</result>
         </action>
 
         <action name="dispatcherInsertAccount" class="thm.web.action.Dispatcher" method="toInsertAccount">
-            <result name="insertAccount">/WEB-INF/admin/manage/insertAccount.jsp</result>
+            <result name="success">/WEB-INF/admin/manage/insertAccount.jsp</result>
+        </action>
+
+        <action name="dispatcherEditAccount" class="thm.web.action.Dispatcher" method="toEditAccount">
+            <result name="success">/WEB-INF/edit/editAccount.jsp</result>
+        </action>
+
+        <action name="dispatcherEditStudent" class="thm.web.action.Dispatcher" method="toEditStudent">
+            <result name="success">/WEB-INF/edit/editStudent.jsp</result>
+        </action>
+
+        <action name="dispatcherEditTeacher" class="thm.web.action.Dispatcher" method="toEditTeacher">
+            <result name="success">/WEB-INF/edit/editTeacher.jsp</result>
+        </action>
+
+        <action name="editAccountAct" class="thm.web.action.EditInfo" method="editAccount">
+            <result name="teacher">/WEB-INF/roles/teacher.jsp</result>
+            <result name="student">/WEB-INF/roles/student.jsp</result>
+        </action>
+
+        <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">
+            <result name="success">/WEB-INF/roles/student.jsp</result>
+        </action>
+
+        <action name="editTeacherAct" class="thm.web.action.EditInfo" method="editTeacher">
+            <result name="success">/WEB-INF/roles/teacher.jsp</result>
         </action>
     </package>
     

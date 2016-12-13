@@ -4,9 +4,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.DepDao;
 import thm.web.dao.LoginDao;
 import thm.web.dao.PapersDao;
+import thm.web.dao.TeacherDao;
 import thm.web.entity.TbAccountEntity;
 import thm.web.entity.TbDepartmentEntity;
 import thm.web.entity.TbPaperinfoEntity;
+import thm.web.entity.TbTeacherEntity;
 
 import java.util.List;
 
@@ -18,7 +20,10 @@ public class QueryAll extends ActionSupport {
     private List<TbDepartmentEntity> depList;
     private List<TbAccountEntity> accountList;
     private List<TbPaperinfoEntity> passPaperList;
+    private List<TbPaperinfoEntity> passPaperList_t;
+    private TbTeacherEntity teacher = new TbTeacherEntity();
     private int studentId;
+    private int accountId;
 
     public String quertAllPapers() throws Exception {
         PapersDao papersDao = new PapersDao();
@@ -46,6 +51,14 @@ public class QueryAll extends ActionSupport {
     public String queryPassPapers(){
         PapersDao papersDao = new PapersDao();
         passPaperList = papersDao.queryPassPapers();
+
+        return SUCCESS;
+    }
+
+    public String queryPassPaper_t(){
+        PapersDao papersDao = new PapersDao();
+        TeacherDao teacherDao = new TeacherDao();
+        passPaperList_t = papersDao.queryPassPaperOnTeacher(teacherDao.queryByAccountId(accountId).getId());
 
         return SUCCESS;
     }
@@ -83,11 +96,35 @@ public class QueryAll extends ActionSupport {
         this.passPaperList = passPaperList;
     }
 
+    public List<TbPaperinfoEntity> getPassPaperList_t() {
+        return passPaperList_t;
+    }
+
+    public void setPassPaperList_t(List<TbPaperinfoEntity> passPaperList_t) {
+        this.passPaperList_t = passPaperList_t;
+    }
+
+    public TbTeacherEntity getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(TbTeacherEntity teacher) {
+        this.teacher = teacher;
+    }
+
     public int getStudentId() {
         return studentId;
     }
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 }

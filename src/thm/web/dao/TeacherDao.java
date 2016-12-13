@@ -3,8 +3,11 @@ package thm.web.dao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import thm.web.entity.TbPaperinfoEntity;
 import thm.web.entity.TbTeacherEntity;
 import thm.web.util.HibernateSessionFactory;
+
+import java.util.List;
 
 /**
  * Created by Tulip on 2016/12/8 0008.
@@ -46,5 +49,12 @@ public class TeacherDao {
         }
 
         return result;
+    }
+
+    public List<TbPaperinfoEntity> queryByTeacherId(int teacherId){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.teacher.id =" + teacherId);
+
+        return query.list();
     }
 }

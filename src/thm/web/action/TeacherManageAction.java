@@ -2,12 +2,16 @@ package thm.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.PapersDao;
+import thm.web.dao.TeacherDao;
+import thm.web.entity.TbAccountEntity;
 import thm.web.entity.TbPaperinfoEntity;
+import thm.web.entity.TbTeacherEntity;
 
 /**
  * Created by Tulip on 2016/12/5 0005.
  */
 public class TeacherManageAction extends ActionSupport {
+    private int id;//accountID
     private int paperId;
     private int teacherId;
     private int depId;
@@ -18,12 +22,15 @@ public class TeacherManageAction extends ActionSupport {
     private String origin;
     private String content;
     private String teacherManage;
-    private TbPaperinfoEntity paperInfo = new TbPaperinfoEntity();
     private PapersDao papersDao = new PapersDao();
     private String updateMsg;
     private String deleteMsg;
     private String verifyMsg;
     private String updatePreFor;
+    private String message;
+    private TbPaperinfoEntity paperInfo = new TbPaperinfoEntity();
+    private TbAccountEntity account = new TbAccountEntity();
+    private TbTeacherEntity teacher = new TbTeacherEntity();
 
     @Override
     public String execute() throws Exception {
@@ -35,6 +42,26 @@ public class TeacherManageAction extends ActionSupport {
         else{
             paperInfo = papersDao.get(paperId);
             return "chosen";
+        }
+    }
+
+    public String declaration() throws Exception {
+        TeacherDao teacherDao = new TeacherDao();
+        PapersDao papersDao = new PapersDao();
+
+        System.out.println(id);
+        teacher = teacherDao.queryByAccountId(id);
+        System.out.println(teacher);
+        paperInfo.setTeacher(teacher);
+        paperInfo.setDep(teacher.getDep());
+        System.out.println("action:" + paperInfo);
+
+        if (papersDao.insertPaper(paperInfo) > 0) {
+            message = "申报成功！";
+            return SUCCESS;
+        }else{
+            message = "申报失败！";
+            return INPUT;
         }
     }
 
@@ -50,14 +77,17 @@ public class TeacherManageAction extends ActionSupport {
     }
 
     public String update() throws Exception{
-        if (papersDao.update(paperInfo) > 0){
+
+        if (papersDao.update(paperInfo) > 0)
             updateMsg = "更新成功！";
-            return SUCCESS;
-        }
-        else{
+        else
             updateMsg = "更新失败！";
-            return INPUT;
-        }
+
+        TeacherDao teacherDao = new TeacherDao();
+        account = teacherDao.get(paperInfo.getTeacher().getId()).getAccount();
+        System.out.println(account);
+
+        return SUCCESS;
     }
 
     public String updateVerifyState() throws Exception{
@@ -73,6 +103,7 @@ public class TeacherManageAction extends ActionSupport {
     }
 
     public String delete() throws Exception{
+        System.out.println("PaperID : " + paperId);
         paperInfo = papersDao.get(paperId);
 
         if (papersDao.delete(paperInfo) > 0){
@@ -210,5 +241,37 @@ public class TeacherManageAction extends ActionSupport {
 
     public void setUpdatePreFor(String updatePreFor) {
         this.updatePreFor = updatePreFor;
+    }
+
+    public TbAccountEntity getAccount() {
+        return account;
+    }
+
+    public void setAccount(TbAccountEntity account) {
+        this.account = account;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public TbTeacherEntity getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(TbTeacherEntity teacher) {
+        this.teacher = teacher;
     }
 }

@@ -13,6 +13,7 @@ public class LoginAction extends ActionSupport {
     private TbAccountEntity account = new TbAccountEntity();
     private String loginName;
     private String loginPwd;
+    private String loginMsg;
     private int id;
 
     @Override
@@ -33,7 +34,7 @@ public class LoginAction extends ActionSupport {
             return "student";
         }
 
-        addFieldError("loginErrMsg", "用户名或密码错误！");
+        loginMsg = "用户名或密码错误！";
         return INPUT;
     }
 
@@ -67,5 +68,13 @@ public class LoginAction extends ActionSupport {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLoginMsg() {
+        return loginMsg;
+    }
+
+    public void setLoginMsg(String loginMsg) {
+        this.loginMsg = loginMsg;
     }
 }

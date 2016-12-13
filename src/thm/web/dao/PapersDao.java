@@ -113,4 +113,11 @@ public class PapersDao {
         }
         return result;
     }
+
+    public List<TbPaperinfoEntity> queryPassPaperOnTeacher(int teacherId){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.verifyState = 1 and pi.numbers > 0 and pi.teacher.id = " + teacherId);
+
+        return query.list();
+    }
 }

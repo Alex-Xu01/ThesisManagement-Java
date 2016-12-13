@@ -70,15 +70,18 @@
                 <th>操作</th>
             </tr>
             <volist name="list" id="vo">
+                <c:forEach items="${passPaperList_t}" var="item">
                 <tr>
-                    <td>005</td>
-                    <td>咸鱼是怎么炼成的</td>
-                    <td>毕业设计</td>
-                    <td>生产实践</td>
-                    <td>产品分类</td>
-                    <td>2016年12月8日</td>
-                    <td><div class="button-group"> <a class="button border-main" href="Teacher_Paper_details.html"><span class="icon-edit"></span>详细</a>
+                    <td>${item.id}</td>
+                    <td>${item.title}</td>
+                    <td>${item.type}</td>
+                    <td>${item.origin}</td>
+                    <td>${item.teacher.name}</td>
+                    <td>${item.releaseDate}</td>
+                    <td><div class="button-group"> <a class="button border-main" href="teacherManageAct.action?paperId=${item.id}"><span class="icon-edit"></span>详细</a></div>
                 </tr>
+                </c:forEach>
+            </volist>
                 <tr>
                     <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
                 </tr>

@@ -21,23 +21,27 @@ public class EditInfo extends ActionSupport {
     private String email;
     private String gender;
     private String picPath;
-    private int accouontId;
     private int state;
     private String updateMsg;
+    private String newPwd;
 
 
     public String editAccount(){
+        System.out.println("！！！！！！！！！！我被执行了！！！！！！！");
+
         LoginDao loginDao = new LoginDao();
+
+        if (newPwd.equals(account.getLoginPwd()))
+            account.setLoginPwd(newPwd);
+
+        System.out.println(account.toString());
 
         if (loginDao.update(account) > 0)
             updateMsg = "修改成功！";
         else
             updateMsg = "修改失败！";
 
-        if (account.getRole() == 1)
-            return "teacher";
-        else
-            return "student";
+        return SUCCESS;
     }
 
     public String editStudent(){
@@ -142,19 +146,19 @@ public class EditInfo extends ActionSupport {
         this.picPath = picPath;
     }
 
-    public int getAccouontId() {
-        return accouontId;
-    }
-
-    public void setAccouontId(int accouontId) {
-        this.accouontId = accouontId;
-    }
-
     public int getState() {
         return state;
     }
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
     }
 }

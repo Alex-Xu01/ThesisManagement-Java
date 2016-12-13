@@ -20,33 +20,39 @@
     <package name="package-teacher" extends="struts-default">
         <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
             <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp?id=${id}</result>
-            <result name="manage">/WEB-INF/teacher/managePapers.jsp?id=${id}</result>
+            <result name="manage" type="redirectAction">showMyPapers?id=${id}</result>
         </action>
         
         <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
-            <result name="lookAll">/WEB-INF/teacher/manage/lookAll.jsp</result>
+            <result name="lookAll">/WEB-INF/teacher/lookAll.jsp</result>
             <result name="edit" type="redirectAction">teacherUpdatePre?paperId=${paperId}&amp;updatePreFor=edit</result>
             <result name="chosen">/WEB-INF/student/paperDetails.jsp</result>
         </action>
 
-        <action name="teacherDeclarationAct" class="thm.web.action.TeacherDeclarationAction">
+        <action name="teacherDeclarationAct" class="thm.web.action.TeacherManageAction" method="declaration">
             <result name="input">/WEB-INF/teacher/declarationPapers.jsp</result>
-            <result name="success">/WEB-INF/roles/teacher.jsp</result>
+            <result name="success">/WEB-INF/show/teacherInfo.jsp</result>
         </action>
 
         <action name="teacherUpdateAct" class="thm.web.action.TeacherManageAction" method="update">
-            <result name="success" type="redirectAction">teacherFunctionAct?functionChoice=manage</result>
-            <result name="input">/WEB-INF/teacher/managePapers.jsp</result>
+            <result name="success" type="redirectAction">showMyPapers?id=${account.id}</result>
         </action>
 
         <action name="teacherUpdatePre" class="thm.web.action.TeacherManageAction" method="updatePre">
-            <result name="edit">/WEB-INF/teacher/manage/edit.jsp?paperId=${paperId}</result>
+            <result name="edit">/WEB-INF/teacher/edit.jsp?paperId=${paperId}</result>
             <result name="adminVerify">/WEB-INF/admin/reviewsPaper.jsp?paperId=${paperId}</result>
         </action>
 
         <action name="teacherDeleteAct" class="thm.web.action.TeacherManageAction" method="delete">
-            <result name="success" type="redirectAction">teacherFunctionAct?functionChoice=manage</result>
-            <result name="input">/WEB-INF/teacher/managePapers.jsp</result>
+            <result name="success" type="redirectAction">showMyPapers?id=${paperInfo.teacher.account.id}</result>
+        </action>
+
+        <action name="showTeacherInfo" class="thm.web.action.TeacherFunctionAction" method="showInfo">
+            <result name="success">/WEB-INF/show/teacherInfo.jsp</result>
+        </action>
+
+        <action name="showMyPapers" class="thm.web.action.TeacherFunctionAction" method="showMyPapers">
+            <result name="success">/WEB-INF/teacher/teacherPaper.jsp</result>
         </action>
     </package>
 
@@ -112,6 +118,10 @@
             <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${studentId}</result>
         </action>
 
+        <action name="queryPassPapers_t" class="thm.web.action.QueryAll" method="queryPassPaper_t">
+            <result name="success">/WEB-INF/teacher/showPassPapers_t.jsp</result>
+        </action>
+
         <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
             <result name="success">/WEB-INF/admin/manage/insertDep.jsp</result>
         </action>
@@ -133,8 +143,7 @@
         </action>
 
         <action name="editAccountAct" class="thm.web.action.EditInfo" method="editAccount">
-            <result name="teacher">/WEB-INF/roles/teacher.jsp</result>
-            <result name="student">/WEB-INF/roles/student.jsp</result>
+            <result name="success" type="redirect">/index.jsp</result>
         </action>
 
         <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">
@@ -142,7 +151,7 @@
         </action>
 
         <action name="editTeacherAct" class="thm.web.action.EditInfo" method="editTeacher">
-            <result name="success">/WEB-INF/roles/teacher.jsp</result>
+            <result name="success" type="redirectAction">showTeacherInfo?id=${teacher.account.id}</result>
         </action>
     </package>
     

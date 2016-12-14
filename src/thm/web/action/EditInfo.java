@@ -46,6 +46,7 @@ public class EditInfo extends ActionSupport {
 
     public String editStudent(){
         StudentDao studentDao = new StudentDao();
+        System.out.println(student);
 
         if (studentDao.update(student) > 0)
             updateMsg = "修改成功！";

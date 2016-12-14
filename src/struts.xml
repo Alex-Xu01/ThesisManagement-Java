@@ -26,12 +26,12 @@
         <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
             <result name="lookAll">/WEB-INF/teacher/lookAll.jsp</result>
             <result name="edit" type="redirectAction">teacherUpdatePre?paperId=${paperId}&amp;updatePreFor=edit</result>
-            <result name="chosen">/WEB-INF/student/paperDetails.jsp</result>
+            <result name="chosen">/WEB-INF/teacher/paperDetails.jsp</result>
         </action>
 
         <action name="teacherDeclarationAct" class="thm.web.action.TeacherManageAction" method="declaration">
             <result name="input">/WEB-INF/teacher/declarationPapers.jsp</result>
-            <result name="success">/WEB-INF/show/teacherInfo.jsp</result>
+            <result name="success" type="redirectAction">showMyPapers?id=${teacher.account.id}</result>
         </action>
 
         <action name="teacherUpdateAct" class="thm.web.action.TeacherManageAction" method="update">
@@ -53,6 +53,10 @@
 
         <action name="showMyPapers" class="thm.web.action.TeacherFunctionAction" method="showMyPapers">
             <result name="success">/WEB-INF/teacher/teacherPaper.jsp</result>
+        </action>
+
+        <action name="showPaperDetails" class="thm.web.action.TeacherFunctionAction" method="showPaperDetails">
+            <result name="success">/WEB-INF/teacher/paperDetails.jsp</result>
         </action>
     </package>
 
@@ -147,7 +151,7 @@
         </action>
 
         <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">
-            <result name="success">/WEB-INF/roles/student.jsp</result>
+            <result name="success" type="redirectAction">showStudentInfo?accountId=${student.accountId}</result>
         </action>
 
         <action name="editTeacherAct" class="thm.web.action.EditInfo" method="editTeacher">
@@ -163,6 +167,15 @@
 
         <action name="showChoose" class="thm.web.action.StudentFunctionAction" method="lookChoose">
             <result name="success">/WEB-INF/student/chosenPaper.jsp</result>
+        </action>
+
+        <action name="showStudentInfo" class="thm.web.action.StudentFunctionAction" method="showInfo">
+            <result name="success">/WEB-INF/show/studentInfo.jsp</result>
+        </action>
+
+        <action name="choosePaperPre" class="thm.web.action.StudentFunctionAction" method="choosePaperPre">
+            <result name="success">/WEB-INF/student/choosePaper.jsp?studentId=${studentId}</result>
+            <result name="details">/WEB-INF/student/details.jsp</result>
         </action>
     </package>
 </struts>

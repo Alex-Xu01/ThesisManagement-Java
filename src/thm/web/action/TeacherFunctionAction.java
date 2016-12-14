@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class TeacherFunctionAction extends ActionSupport{
     private int id;//accountID
+    private int paperId;
     private String functionChoice;
     private List<TbPaperinfoEntity> paperList;
     private List<TbPaperinfoEntity> myPaperList;
@@ -49,12 +50,27 @@ public class TeacherFunctionAction extends ActionSupport{
 
         return SUCCESS;
     }
+
+    public String showPaperDetails(){
+        PapersDao papersDao = new PapersDao();
+        paperInfo = papersDao.get(paperId);
+
+        return SUCCESS;
+    }
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPaperId() {
+        return paperId;
+    }
+
+    public void setPaperId(int paperId) {
+        this.paperId = paperId;
     }
 
     public String getFunctionChoice() {

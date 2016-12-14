@@ -69,7 +69,8 @@ public class LoginDao {
         System.out.println("Dao : " + account.toString());
 
         try {
-            session.update(account);
+            session.merge(account);
+            //session.update(account);
             transaction.commit();
             result = 1;
         }catch (Exception e){

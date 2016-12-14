@@ -3,8 +3,10 @@ package thm.web.action;
 import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.ChooseDao;
 import thm.web.dao.PapersDao;
+import thm.web.dao.StudentDao;
 import thm.web.entity.TbPaperchoiceEntity;
 import thm.web.entity.TbPaperinfoEntity;
+import thm.web.entity.TbStudentEntity;
 
 import java.util.List;
 
@@ -12,25 +14,20 @@ import java.util.List;
  * Created by Tulip on 2016/12/11 0011.
  */
 public class StudentFunctionAction extends ActionSupport {
+    private int accountId;
     private int paperId;
     private int studentId;
     private int numbers;
     private String chooseMsg;
     private TbPaperinfoEntity paper = new TbPaperinfoEntity();
     private TbPaperchoiceEntity choice = new TbPaperchoiceEntity();
+    private TbStudentEntity student = new TbStudentEntity();
     private List<TbPaperchoiceEntity> chosenList;
     private PapersDao papersDao = new PapersDao();
     private ChooseDao chooseDao = new ChooseDao();
 
     public String choosePaper(){
         paper = papersDao.get(paperId);
-
-        System.out.println("StudentId:" + studentId);
-
-        if (numbers == 0){
-            chooseMsg = "您选择论文题目人数已满，请选择其他题目";
-            return INPUT;
-        }
 
         if (chooseDao.insert(choice, paper, studentId) > 0){
             chooseMsg = "选择成功！";
@@ -50,6 +47,33 @@ public class StudentFunctionAction extends ActionSupport {
         System.out.println(chosenList);
 
         return SUCCESS;
+    }
+
+    public String showInfo(){
+        StudentDao studentDao = new StudentDao();
+        student = studentDao.queryByAccountId(accountId);
+
+        return SUCCESS;
+    }
+
+    public String choosePaperPre(){
+        PapersDao papersDao = new PapersDao();
+        paper = papersDao.get(paperId);
+
+        System.out.println("studentId : " + studentId);
+
+        if ("details".equals(chooseMsg))
+            return "details";
+        else
+            return SUCCESS;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public int getPaperId() {
@@ -98,6 +122,14 @@ public class StudentFunctionAction extends ActionSupport {
 
     public void setChoice(TbPaperchoiceEntity choice) {
         this.choice = choice;
+    }
+
+    public TbStudentEntity getStudent() {
+        return student;
+    }
+
+    public void setStudent(TbStudentEntity student) {
+        this.student = student;
     }
 
     public List<TbPaperchoiceEntity> getChosenList() {

@@ -78,7 +78,7 @@
                     <td>${item.origin}</td>
                     <td>${item.teacher.name}</td>
                     <td>${item.releaseDate}</td>
-                    <td><div class="button-group"> <a class="button border-main" href="teacherManageAct.action?paperId=${item.id}"><span class="icon-edit"></span>详细</a></div>
+                    <td><div class="button-group"> <a class="button border-main" href="showPaperDetails.action?paperId=${item.id}"><span class="icon-edit"></span>详细</a></div>
                 </tr>
                 </c:forEach>
             </volist>

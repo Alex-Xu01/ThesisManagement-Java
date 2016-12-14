@@ -57,4 +57,46 @@ public class TeacherDao {
 
         return query.list();
     }
+
+    public int delete(TbTeacherEntity teacher){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(teacher);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
+
+        return result;
+    }
+
+    public int insert(TbTeacherEntity teacher){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        teacher.setState(1);
+
+        try {
+            session.save(teacher);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
+        System.out.println(result);
+        return result;
+    }
 }

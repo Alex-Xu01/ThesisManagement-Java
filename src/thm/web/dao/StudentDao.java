@@ -40,4 +40,45 @@ public class StudentDao {
 
         return result;
     }
+
+    public int delete(TbStudentEntity student){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(student);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
+
+        return result;
+    }
+
+    public int insert(TbStudentEntity student){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        student.setState(1);
+
+        try {
+            session.save(student);
+            transaction.commit();
+            result = 1;
+        }catch (Exception e){
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.clear();
+            session.close();
+        }
+        return result;
+    }
 }

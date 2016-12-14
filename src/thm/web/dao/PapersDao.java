@@ -31,6 +31,20 @@ public class PapersDao {
         return query.list();
     }
 
+    public List<TbPaperinfoEntity> queryAllPassPapers(){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.verifyState = 1");
+
+        return query.list();
+    }
+
+    public List<TbPaperinfoEntity> queryFailedPaper(){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.verifyState = 0 and pi.numbers > 0");
+
+        return query.list();
+    }
+
     public int insertPaper(TbPaperinfoEntity paperInfo){
         String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         Date date = Date.valueOf(currentTime);

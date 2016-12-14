@@ -1,10 +1,10 @@
 package thm.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import thm.web.dao.DepDao;
-import thm.web.dao.LoginDao;
-import thm.web.entity.TbAccountEntity;
-import thm.web.entity.TbDepartmentEntity;
+import thm.web.dao.*;
+import thm.web.entity.*;
+
+import java.util.List;
 
 /**
  * Created by Tulip on 2016/12/9 0009.
@@ -72,8 +72,22 @@ public class AdminManageAction extends ActionSupport{
     
     public String insertAccount(){
         account.setState(1);
+        int role = account.getRole();
 
         if (loginDao.insert(account) > 0){
+            System.out.println(account);
+
+            if (role == 1){
+                TeacherDao teacherDao = new TeacherDao();
+                TbTeacherEntity teacher = new TbTeacherEntity();
+                teacher.setAccount(account);
+                teacherDao.insert(teacher);
+            }else {
+                StudentDao studentDao = new StudentDao();
+                TbStudentEntity student = new TbStudentEntity();
+                student.setAccountId(account.getId());
+                studentDao.insert(student);
+            }
             insertMsg = "插入成功！";
             return SUCCESS;
         }else {
@@ -103,6 +117,29 @@ public class AdminManageAction extends ActionSupport{
 
     public String deleteAccount(){
         account = loginDao.get(accountId);
+        int role = account.getRole();
+
+        if (role == 1){
+            TeacherDao teacherDao = new TeacherDao();
+            TbTeacherEntity teacher = teacherDao.queryByAccountId(account.getId());
+            teacherDao.delete(teacher);
+
+            PapersDao papersDao = new PapersDao();
+            List<TbPaperinfoEntity> list = papersDao.queryByTeacher(teacher.getId());
+
+            for (int i = 0; i < list.size(); i++)
+                papersDao.delete(list.get(i));
+        }else {
+            StudentDao studentDao = new StudentDao();
+            TbStudentEntity student = studentDao.queryByAccountId(account.getId());
+            studentDao.delete(student);
+
+            ChooseDao chooseDao = new ChooseDao();
+            List<TbPaperchoiceEntity> list = chooseDao.queryByStudent(student.getId());
+
+            for(int i = 0; i < list.size(); i++)
+                chooseDao.delete(list.get(i));
+        }
 
         if (loginDao.delete(account) > 0){
             deleteMsg = "删除成功！";
@@ -230,4 +267,6 @@ public class AdminManageAction extends ActionSupport{
     public void setRole(int role) {
         this.role = role;
     }
+
+
 }

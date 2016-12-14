@@ -42,7 +42,9 @@ public class StudentFunctionAction extends ActionSupport {
     public String lookChoose(){
         System.out.println(studentId);
         ChooseDao chooseDao = new ChooseDao();
-        chosenList = chooseDao.queryChoosedPaper(studentId);
+        StudentDao studentDao = new StudentDao();
+        student = studentDao.queryByAccountId(accountId);
+        chosenList = chooseDao.queryChoosedPaper(student.getId());
 
         System.out.println(chosenList);
 

@@ -51,8 +51,8 @@
     </ul>
     <h2><span class="icon-pencil-square-o"></span>学生系统</h2>
     <ul>
-        <li><a href="queryPassPapers.action?studentId=${id}" target="right"><span class="icon-caret-right"></span>选择论文题目</a></li>
-        <li><a href="showChoose.action?studentId=${id}" target="right"><span class="icon-caret-right"></span>已选论文</a></li>
+        <li><a href="queryPassPapers.action?accountId=${id}" target="right"><span class="icon-caret-right"></span>选择论文题目</a></li>
+        <li><a href="showChoose.action?accountId=${id}" target="right"><span class="icon-caret-right"></span>已选论文</a></li>
     </ul>
 </div>
 <script type="text/javascript">

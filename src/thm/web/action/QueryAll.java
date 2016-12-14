@@ -1,14 +1,8 @@
 package thm.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import thm.web.dao.DepDao;
-import thm.web.dao.LoginDao;
-import thm.web.dao.PapersDao;
-import thm.web.dao.TeacherDao;
-import thm.web.entity.TbAccountEntity;
-import thm.web.entity.TbDepartmentEntity;
-import thm.web.entity.TbPaperinfoEntity;
-import thm.web.entity.TbTeacherEntity;
+import thm.web.dao.*;
+import thm.web.entity.*;
 
 import java.util.List;
 
@@ -21,7 +15,9 @@ public class QueryAll extends ActionSupport {
     private List<TbAccountEntity> accountList;
     private List<TbPaperinfoEntity> passPaperList;
     private List<TbPaperinfoEntity> passPaperList_t;
+    private List<TbPaperinfoEntity> failedPaperList;
     private TbTeacherEntity teacher = new TbTeacherEntity();
+    private TbStudentEntity student = new TbStudentEntity();
     private int studentId;
     private int accountId;
 
@@ -48,9 +44,27 @@ public class QueryAll extends ActionSupport {
         return SUCCESS;
     }
 
+    public String queryExceptMe(){
+        LoginDao loginDao = new LoginDao();
+        accountList = loginDao.queryExceptMe(accountId);
+
+        return SUCCESS;
+    }
+
+    public String queryAllPass(){
+        PapersDao papersDao = new PapersDao();
+        passPaperList = papersDao.queryAllPassPapers();
+
+        return SUCCESS;
+    }
+
     public String queryPassPapers(){
         PapersDao papersDao = new PapersDao();
+        StudentDao studentDao = new StudentDao();
         passPaperList = papersDao.queryPassPapers();
+        student = studentDao.queryByAccountId(accountId);
+
+        System.out.println("Student=" + student);
 
         return SUCCESS;
     }
@@ -59,6 +73,13 @@ public class QueryAll extends ActionSupport {
         PapersDao papersDao = new PapersDao();
         TeacherDao teacherDao = new TeacherDao();
         passPaperList_t = papersDao.queryPassPaperOnTeacher(teacherDao.queryByAccountId(accountId).getId());
+
+        return SUCCESS;
+    }
+
+    public String queryFailedPaper(){
+        PapersDao papersDao = new PapersDao();
+        failedPaperList = papersDao.queryFailedPaper();
 
         return SUCCESS;
     }
@@ -104,6 +125,14 @@ public class QueryAll extends ActionSupport {
         this.passPaperList_t = passPaperList_t;
     }
 
+    public List<TbPaperinfoEntity> getFailedPaperList() {
+        return failedPaperList;
+    }
+
+    public void setFailedPaperList(List<TbPaperinfoEntity> failedPaperList) {
+        this.failedPaperList = failedPaperList;
+    }
+
     public TbTeacherEntity getTeacher() {
         return teacher;
     }
@@ -114,6 +143,14 @@ public class QueryAll extends ActionSupport {
 
     public int getStudentId() {
         return studentId;
+    }
+
+    public TbStudentEntity getStudent() {
+        return student;
+    }
+
+    public void setStudent(TbStudentEntity student) {
+        this.student = student;
     }
 
     public void setStudentId(int studentId) {

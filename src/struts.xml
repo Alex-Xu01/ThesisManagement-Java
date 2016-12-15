@@ -76,13 +76,13 @@
         </action>
 
         <action name="deleteDepAct" class="thm.web.action.AdminManageAction" method="deleteDep">
-            <result name="success" type="chain">queryAllDep</result>
-            <result name="input" type="chain">queryAllDep</result>
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
         </action>
 
         <action name="insertAccountAct" class="thm.web.action.AdminManageAction" method="insertAccount">
-            <result name="success" type="chain">queryAllAccount</result>
-            <result name="input" type="chain">queryAllAccount</result>
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
         </action>
 
         <action name="updateAccountPre" class="thm.web.action.AdminManageAction" method="updateAccountPre">
@@ -90,17 +90,17 @@
         </action>
 
         <action name="updateAccountAct" class="thm.web.action.AdminManageAction" method="updateAccount">
-            <result name="success" type="chain">queryAllAccount</result>
-            <result name="input" type="chain">queryAllAccount</result>
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
         </action>
 
         <action name="deleteAccountAct" class="thm.web.action.AdminManageAction" method="deleteAccount">
-            <result name="success" type="chain">queryAllAccount</result>
-            <result name="input" type="chain">queryAllAccount</result>
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
         </action>
 
         <action name="adminVerifyAct" class="thm.web.action.TeacherManageAction" method="updateVerifyState">
-            <result name="success" type="chain">queryAllPapers</result>
+            <result name="success" type="chain">queryAllPassPapers</result>
             <result name="input">/WEB-INF/admin/reviewsPaper.jsp</result>
         </action>
     </package>
@@ -118,12 +118,24 @@
             <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
         </action>
 
+        <action name="queryAccountExceptMe" class="thm.web.action.QueryAll" method="queryExceptMe">
+            <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
+        </action>
+
         <action name="queryPassPapers" class="thm.web.action.QueryAll" method="queryPassPapers">
-            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${studentId}</result>
+            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${student.id}</result>
+        </action>
+
+        <action name="queryAllPassPapers" class="thm.web.action.QueryAll" method="queryAllPass">
+            <result name="success">/WEB-INF/show/showPassPapers.jsp</result>
         </action>
 
         <action name="queryPassPapers_t" class="thm.web.action.QueryAll" method="queryPassPaper_t">
             <result name="success">/WEB-INF/teacher/showPassPapers_t.jsp</result>
+        </action>
+
+        <action name="queryFailedPaper" class="thm.web.action.QueryAll" method="queryFailedPaper">
+            <result name="success">/WEB-INF/show/showFailedPaper.jsp</result>
         </action>
 
         <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">

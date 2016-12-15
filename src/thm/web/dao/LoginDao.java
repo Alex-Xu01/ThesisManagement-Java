@@ -21,6 +21,13 @@ public class LoginDao {
         return query.list();
     }
 
+    public List<TbAccountEntity> queryExceptMe(int accountId){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbAccountEntity as a where a.id <>" + accountId);
+
+        return query.list();
+    }
+
     public List<TbAccountEntity> queryInfo(String loginName){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Query query = session.createQuery("from TbAccountEntity as a where a.loginName = '" + loginName + "'");

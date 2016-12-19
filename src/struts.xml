@@ -103,6 +103,10 @@
             <result name="success" type="chain">queryAllPassPapers</result>
             <result name="input">/WEB-INF/admin/reviewsPaper.jsp</result>
         </action>
+
+        <action name="queryNumbers" class="thm.web.action.AdminManageAction" method="queryNumbers">
+            <result name="success">/WEB-INF/admin/default.jsp</result>
+        </action>
     </package>
 
     <package name="package-common" extends="struts-default">
@@ -123,7 +127,7 @@
         </action>
 
         <action name="queryPassPapers" class="thm.web.action.QueryAll" method="queryPassPapers">
-            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${student.id}</result>
+            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${studentId}</result>
         </action>
 
         <action name="queryAllPassPapers" class="thm.web.action.QueryAll" method="queryAllPass">
@@ -159,7 +163,8 @@
         </action>
 
         <action name="editAccountAct" class="thm.web.action.EditInfo" method="editAccount">
-            <result name="success" type="redirect">/index.jsp</result>
+            <result name="teacher" type="redirectAction">showTeacherInfo?id=${account.id}</result>
+            <result name="student" type="redirectAction">showStudentInfo?accountId=${account.id}</result>
         </action>
 
         <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">

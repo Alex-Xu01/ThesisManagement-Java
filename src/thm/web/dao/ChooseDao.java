@@ -77,4 +77,14 @@ public class ChooseDao {
         }
         return result;
     }
+
+    public boolean ifChosen(int studentId, int paperId){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        List chosenList = session.createQuery("select p.paper.id from TbPaperchoiceEntity as p where p.studentId = " + studentId).list();
+
+        if (chosenList.contains(paperId))
+            return true;
+
+        return false;
+    }
 }

@@ -71,7 +71,7 @@
     });
 </script>
 <div class="admin">
-    <iframe scrolling="auto" rameborder="0" src="info.html" name="right" width="100%" height="100%"></iframe>
+    <iframe scrolling="auto" rameborder="0" src="queryNumbers.action" name="right" width="100%" height="100%"></iframe>
 </div>
 <div style="text-align:center;">
 </div>

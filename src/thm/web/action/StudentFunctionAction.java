@@ -27,10 +27,16 @@ public class StudentFunctionAction extends ActionSupport {
     private ChooseDao chooseDao = new ChooseDao();
 
     public String choosePaper(){
+        System.out.println("paperId : " + paperId + "StudentId : " + studentId);
         paper = papersDao.get(paperId);
+
+        if (chooseDao.ifChosen(studentId, paperId)) {
+            return INPUT;
+        }
 
         if (chooseDao.insert(choice, paper, studentId) > 0){
             chooseMsg = "选择成功！";
+            System.out.println("Succeed ! paperId : " + paperId + "StudentId : " + studentId);
             return SUCCESS;
         }else{
             chooseMsg = "选择失败！";
@@ -44,7 +50,10 @@ public class StudentFunctionAction extends ActionSupport {
         ChooseDao chooseDao = new ChooseDao();
         StudentDao studentDao = new StudentDao();
         student = studentDao.queryByAccountId(accountId);
-        chosenList = chooseDao.queryChoosedPaper(student.getId());
+        if (student != null)
+            chosenList = chooseDao.queryChoosedPaper(student.getId());
+        else
+            chosenList = chooseDao.queryChoosedPaper(studentId);
 
         System.out.println(chosenList);
 

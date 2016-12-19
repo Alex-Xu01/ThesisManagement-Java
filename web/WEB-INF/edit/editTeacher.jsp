@@ -7,30 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<html>--%>
-<%--<head>--%>
-    <%--<title>修改用户信息</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<form action="editTeacherAct.action" method="post">--%>
-    <%--姓名：<input type="text" name="teacher.name" value="${teacher.name}">--%>
-    <%--电话：<input type="text" name="teacher.phone" value="${teacher.phone}">--%>
-    <%--电子邮件：<input type="text" name="teacher.email" value="${teacher.email}">--%>
-    <%--职称：<input type="text" name="teacher.title" value="${teacher.title}">--%>
-    <%--专长：<input type="text" name="teacher.specialty" value="${teacher.specialty}">--%>
-    <%--所属系部：--%>
-    <%--<select name="teacher.dep.id" value="${teacher.dep.id}">--%>
-        <%--<c:forEach items="${depList}" var="item">--%>
-            <%--<option value="${item.id}">${item.name}</option>--%>
-        <%--</c:forEach>--%>
-    <%--</select><br>--%>
-    <%--<input type="submit" value="确定">--%>
-    <%--<input type="number" name="teacher.id" value="${teacher.id}" style="display:none;">--%>
-    <%--<input type="number" name="teacher.account.id" value="${teacher.account.id}" style="display:none;">--%>
-    <%--<input type="number" name="teacher.state" value="${teacher.state}" style="display:none;">--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
+                   <%--_ooOoo_--%>
+                  <%--o8888888o--%>
+                  <%--88" . "88--%>
+                  <%--(| -_- |)--%>
+                  <%--O\  =  /O--%>
+               <%--____/`---'\____--%>
+             <%--.'  \\|     |//  `.--%>
+            <%--/  \\|||  :  |||//  \--%>
+           <%--/  _||||| -:- |||||-  \--%>
+           <%--|   | \\\  -  /// |   |--%>
+           <%--| \_|  ''\---/''  |   |--%>
+           <%--\  .-\__  `-`  ___/-. /--%>
+         <%--___`. .'  /--.--\  `. . __--%>
+      <%--."" '<  `.___\_<|>_/___.'  >'"".--%>
+     <%--| | :  `- \`.;`\ _ /`;.`/ - ` : | |--%>
+     <%--\  \ `-.   \_ __\ /__ _/   .-` /  /--%>
+<%--======`-.____`-.___\_____/___.-`____.-'======--%>
+                   <%--`=---='--%>
+<%--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--%>
+         <%--佛祖保佑       永无BUG--%>
 
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -106,7 +102,7 @@
                         <label>所属系部：</label>
                     </div>
                     <div class="field">
-                        <select name="teacher.dep.id" value="${teacher.dep.id}">
+                        <select name="teacher.dep.id" value="${teacher.dep.id}" id="depId">
                           <c:forEach items="${depList}" var="item">
                             <option value="${item.id}">${item.name}</option>
                           </c:forEach>
@@ -145,5 +141,19 @@
         </form>
     </div>
 </div>
+<script type="text/javascript">
+    function selected(selectId, optionValue){
+        var select = document.getElementById(selectId);
+
+        for (var i = 0; i < select.length; i++){
+            if (select.options[i].value == optionValue){
+                select.selectedIndex = i;
+                break;
+            }
+        }
+    }
+
+    selected("depId", "${teacher.dep.id}");
+</script>
 </body>
 </html>

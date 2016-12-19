@@ -71,7 +71,6 @@
                     </div>
                     <div class="field">
                         <select name="account.role" class="input w50" value="${account.role}" id="role">
-                            <option value="0">管理员</option>
                             <option value="1">教师</option>
                             <option value="2">学生</option>
                         </select>
@@ -92,20 +91,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    window.onload = selectDefaultValue(${account.role});
-
-    function selectDefaultValue(objItemText) {
-        var allOptions = document.getElementById("role");
-        for (var i = 0; i < allOptions.length; i++){
-            if (allOptions.value[i] == objItemText){
-                alert(allOptions.value[i]);
-                allOptions.value[i].selected = true;
-                break;
-            }
-        }
-
-    };
-</script>
 </body>
 </html>

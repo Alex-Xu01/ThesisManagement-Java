@@ -6,24 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-    <%--<title>新增账户</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<form action="insertAccountAct.action" method="post">--%>
-    <%--登录名：<input type="text" name="account.loginName"><br>--%>
-    <%--密码：<input type="password" name="account.loginPwd"><br>--%>
-    <%--身份：--%>
-    <%--<select name="account.role">--%>
-        <%--<option value="0">管理员</option>--%>
-        <%--<option value="1">教师</option>--%>
-        <%--<option value="2">学生</option>--%>
-    <%--</select><br>--%>
-    <%--<input type="submit" value="提交">--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
+                   <%--_ooOoo_--%>
+                  <%--o8888888o--%>
+                  <%--88" . "88--%>
+                  <%--(| -_- |)--%>
+                  <%--O\  =  /O--%>
+               <%--____/`---'\____--%>
+             <%--.'  \\|     |//  `.--%>
+            <%--/  \\|||  :  |||//  \--%>
+           <%--/  _||||| -:- |||||-  \--%>
+           <%--|   | \\\  -  /// |   |--%>
+           <%--| \_|  ''\---/''  |   |--%>
+           <%--\  .-\__  `-`  ___/-. /--%>
+         <%--___`. .'  /--.--\  `. . __--%>
+      <%--."" '<  `.___\_<|>_/___.'  >'"".--%>
+     <%--| | :  `- \`.;`\ _ /`;.`/ - ` : | |--%>
+     <%--\  \ `-.   \_ __\ /__ _/   .-` /  /--%>
+<%--======`-.____`-.___\_____/___.-`____.-'======--%>
+                   <%--`=---='--%>
+<%--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--%>
+         <%--佛祖保佑       永无BUG--%>
 
 
 <!DOCTYPE html>

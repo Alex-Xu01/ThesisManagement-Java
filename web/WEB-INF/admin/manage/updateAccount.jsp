@@ -6,26 +6,27 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-    <%--<title>编辑账户</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<form action="updateAccountAct.action" method="post">--%>
-    <%--修改登录名：<input type="text" name="account.loginName" value="${account.loginName}"><br>--%>
-    <%--修改密码：<input type="password" name="account.loginPwd" value="${account.loginPwd}"><br>--%>
-    <%--修改身份：--%>
-    <%--<select name="account.role" value="${account.role}">--%>
-        <%--<option value="0">管理员</option>--%>
-        <%--<option value="1">教师</option>--%>
-        <%--<option value="2">学生</option>--%>
-    <%--</select><br>--%>
-    <%--<input type="number" name="account.id" value="${account.id}" style="display:none;">--%>
-    <%--<input type="number" name="account.state" value="${account.state}" style="display:none;">--%>
-    <%--<input type="submit" value="提交">--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+                   <%--_ooOoo_--%>
+                  <%--o8888888o--%>
+                  <%--88" . "88--%>
+                  <%--(| -_- |)--%>
+                  <%--O\  =  /O--%>
+               <%--____/`---'\____--%>
+             <%--.'  \\|     |//  `.--%>
+            <%--/  \\|||  :  |||//  \--%>
+           <%--/  _||||| -:- |||||-  \--%>
+           <%--|   | \\\  -  /// |   |--%>
+           <%--| \_|  ''\---/''  |   |--%>
+           <%--\  .-\__  `-`  ___/-. /--%>
+         <%--___`. .'  /--.--\  `. . __--%>
+      <%--."" '<  `.___\_<|>_/___.'  >'"".--%>
+     <%--| | :  `- \`.;`\ _ /`;.`/ - ` : | |--%>
+     <%--\  \ `-.   \_ __\ /__ _/   .-` /  /--%>
+<%--======`-.____`-.___\_____/___.-`____.-'======--%>
+                   <%--`=---='--%>
+<%--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--%>
+         <%--佛祖保佑       永无BUG--%>
 
 
 <!DOCTYPE html>
@@ -91,5 +92,19 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function selected(selectId, optionValue){
+        var select = document.getElementById(selectId);
+
+        for (var i = 0; i < select.length; i++){
+            if (select.options[i].value == optionValue){
+                select.selectedIndex = i;
+                break;
+            }
+        }
+    }
+
+    selected("role", "${account.role}");
+</script>
 </body>
 </html>

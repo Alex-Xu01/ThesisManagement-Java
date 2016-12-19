@@ -66,6 +66,9 @@ public class QueryAll extends ActionSupport {
 
         System.out.println("Student=" + student);
 
+        if (student != null)
+            studentId = student.getId();
+
         return SUCCESS;
     }
 

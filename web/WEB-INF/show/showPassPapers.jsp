@@ -58,7 +58,7 @@
 <body>
 <form method="post" action="" id="listform">
     <div class="panel admin-panel">
-        <div class="panel-head"><strong class="icon-reorder"> 已通过审核的论文</strong>
+        <div class="panel-head"><strong class="icon-reorder"> 已通过审核的论文${studentId}</strong>
             <a href="" style="float:right; display:none;">添加字段</a>
         </div>
         <table class="table table-hover text-center">

@@ -41,7 +41,10 @@ public class EditInfo extends ActionSupport {
         else
             updateMsg = "修改失败！";
 
-        return SUCCESS;
+        if (account.getRole() == 1)
+            return "teacher";
+        else
+            return "student";
     }
 
     public String editStudent(){

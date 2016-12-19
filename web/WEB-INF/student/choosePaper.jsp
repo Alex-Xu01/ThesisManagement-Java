@@ -97,11 +97,13 @@
                         <label>${paper.dep.name}</label>
                     </div>
                 </div>
+                <div class="form-group">
                 <form method="post" class="form-x" action="">
-                    <div class="field">
-                        <button class="button bg-main icon-check-square-o" type="submit">确认选择</button>
+                    <div class="label" style="margin-left: 60px">
+                        <label><button class="button bg-main icon-check-square-o" type="submit">确认选择</button></label>
                     </div>
                 </form>
+                </div>
             </form>
         </div>
     </div>

@@ -26,6 +26,10 @@ public class AdminManageAction extends ActionSupport{
     private String loginName;
     private String loginPwd;
     private int role;
+    private int accountNumber;
+    private int depNumber;
+    private int passNumber;
+    private int failedNumber;
 
     public String insertDep(){
         dep.setState(1);
@@ -150,6 +154,20 @@ public class AdminManageAction extends ActionSupport{
         }
     }
 
+    public String queryNumbers(){
+        LoginDao loginDao = new LoginDao();
+        DepDao depDao = new DepDao();
+        PapersDao papersDao = new PapersDao();
+
+        accountNumber = loginDao.queryAll().size();
+        depNumber = depDao.queryAll().size();
+        passNumber = papersDao.queryAllPassPapers().size();
+        failedNumber = papersDao.queryFailedPaper().size();
+
+        return SUCCESS;
+    }
+
+
 
     public String accountManage(){
 
@@ -268,5 +286,35 @@ public class AdminManageAction extends ActionSupport{
         this.role = role;
     }
 
+    public int getAccountNumber() {
+        return accountNumber;
+    }
 
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public int getDepNumber() {
+        return depNumber;
+    }
+
+    public void setDepNumber(int depNumber) {
+        this.depNumber = depNumber;
+    }
+
+    public int getPassNumber() {
+        return passNumber;
+    }
+
+    public void setPassNumber(int passNumber) {
+        this.passNumber = passNumber;
+    }
+
+    public int getFailedNumber() {
+        return failedNumber;
+    }
+
+    public void setFailedNumber(int failedNumber) {
+        this.failedNumber = failedNumber;
+    }
 }

@@ -70,8 +70,7 @@
                         <label>身份：</label>
                     </div>
                     <div class="field">
-                        <select name="account.role" class="input w50" value="${account.role}">
-                            <option value="0">管理员</option>
+                        <select name="account.role" class="input w50" value="${account.role}" id="role">
                             <option value="1">教师</option>
                             <option value="2">学生</option>
                         </select>

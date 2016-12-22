@@ -36,7 +36,6 @@ public class StudentFunctionAction extends ActionSupport {
 
         if (chooseDao.insert(choice, paper, studentId) > 0){
             chooseMsg = "选择成功！";
-            System.out.println("Succeed ! paperId : " + paperId + "StudentId : " + studentId);
             return SUCCESS;
         }else{
             chooseMsg = "选择失败！";

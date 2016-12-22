@@ -57,17 +57,17 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/showPassPapers_t.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="28" selection-end-column="25" />
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teacherPaper.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="teacherPaper.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/teacherPaper.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="90">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -76,18 +76,8 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choosePaper.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/choosePaper.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="162">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -97,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/chosenPaper.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="28" selection-end-column="25" />
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -107,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/details.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -117,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/declarationPapers.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="28" selection-end-column="25" />
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -127,7 +117,17 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Log" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -137,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/lookAll.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -147,7 +147,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/paperDetails.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -168,16 +168,16 @@
       <list>
         <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/Log" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/roles/admin.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/manage/insertAccount.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/manage/insertDep.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/manage/updateAccount.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/manage/updateDep.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/admin/reviewsPaper.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/default.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/admin/reviewsPaper.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/edit/editAccount.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/edit/editStudent.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/edit/editTeacher.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/roles/admin.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/roles/student.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/roles/teacher.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/show/showAllAccount.jsp" />
@@ -195,8 +195,8 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/teacher/lookAll.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/teacher/paperDetails.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/teacher/showPassPapers_t.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/teacher/teacherPaper.jsp" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/teacher/teacherPaper.jsp" />
       </list>
     </option>
   </component>
@@ -251,9 +251,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -545,7 +545,7 @@
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
@@ -1071,12 +1071,14 @@
       <workItem from="1482113505777" duration="6018000" />
       <workItem from="1482130361664" duration="7017000" />
       <workItem from="1482137571412" duration="96000" />
-      <workItem from="1482232923902" duration="64000" />
+      <workItem from="1482232923902" duration="255000" />
+      <workItem from="1482297246719" duration="595000" />
+      <workItem from="1482330744659" duration="1465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14658000" />
+    <option name="totallyTimeSpent" value="16909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1084,19 +1086,20 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28741866" sideWeight="0.5021322" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28741866" sideWeight="0.4978678" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28741866" sideWeight="0.4978678" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24360341" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24360341" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1104,7 +1107,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1177,14 +1179,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1926">
           <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/default.jsp">
@@ -1280,27 +1282,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="92" column="89" selection-start-line="92" selection-start-column="89" selection-end-line="92" selection-end-column="89" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/manage/insertAccount.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1308,7 +1303,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/manage/insertDep.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1329,18 +1324,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/reviewsPaper.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/default.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="28" selection-end-column="25" />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="21" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/default.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/reviewsPaper.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1348,7 +1343,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/edit/editAccount.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1356,7 +1351,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/edit/editStudent.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="29" selection-end-column="0" />
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1364,15 +1359,15 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/edit/editTeacher.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/roles/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="61">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1380,7 +1375,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/roles/student.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="28" selection-end-column="0" />
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1388,7 +1383,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/roles/teacher.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="28" selection-end-column="0" />
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1396,7 +1391,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/showAllAccount.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1404,7 +1399,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/showAllDep.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="30" selection-end-column="0" />
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1412,7 +1407,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/showAllPapers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1420,7 +1415,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/showFailedPaper.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1428,7 +1423,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/showPassPapers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="29" selection-end-column="0" />
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1436,7 +1431,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/studentInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1444,7 +1439,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/show/teacherInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1452,7 +1447,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/choosePaper.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1460,7 +1455,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/chosenPaper.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1468,7 +1463,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/student/details.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1476,31 +1471,23 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/declarationPapers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="27" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/lookAll.jsp">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/paperDetails.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/teacherPaper.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="28" selection-end-column="25" />
+        <state relative-caret-position="90">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1508,23 +1495,39 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/showPassPapers_t.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="28" selection-end-column="25" />
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/paperDetails.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="162">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/teacherPaper.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/lookAll.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="162">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/teacher/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="23" selection-end-line="27" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1535,7 +1538,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>ThesisManagement-Java:war exploded</last-edited>
+          <last-edited>ThesisManagement-Java:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1583,7 +1586,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ThesisManagement-Java</last-edited>
+          <last-edited>Hibernate|ThesisManagement-Java</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.LoginDao;
 import thm.web.dao.StudentDao;
 import thm.web.dao.TeacherDao;
+import thm.web.entity.Result;
 import thm.web.entity.TbAccountEntity;
 import thm.web.entity.TbStudentEntity;
 import thm.web.entity.TbTeacherEntity;
@@ -15,7 +16,8 @@ public class EditInfo extends ActionSupport {
     private TbAccountEntity account = new TbAccountEntity();
     private TbStudentEntity student = new TbStudentEntity();
     private TbTeacherEntity teacher = new TbTeacherEntity();
-    private int id;
+    private int id;//accountId
+    private int studentId;
     private String name;
     private String phone;
     private String email;
@@ -24,39 +26,69 @@ public class EditInfo extends ActionSupport {
     private int state;
     private String updateMsg;
     private String newPwd;
+    private Result result = new Result();
+    private int android;
 
 
     public String editAccount(){
-        System.out.println("！！！！！！！！！！我被执行了！！！！！！！");
-
         LoginDao loginDao = new LoginDao();
 
-        if (newPwd.equals(account.getLoginPwd()))
+        System.out.println(id);
+
+        if (android == 1){
+            account = loginDao.get(id);
+
+            System.out.println(account);
+
             account.setLoginPwd(newPwd);
 
-        System.out.println(account.toString());
+            if (loginDao.update(account) > 0)
+                result.setResult(true);
+            else
+                result.setResult(false);
 
-        if (loginDao.update(account) > 0)
-            updateMsg = "修改成功！";
-        else
-            updateMsg = "修改失败！";
+            return "android";
+        }else {
+            if (newPwd.equals(account.getLoginPwd()))
+                account.setLoginPwd(newPwd);
 
-        if (account.getRole() == 1)
-            return "teacher";
-        else
-            return "student";
+            if (loginDao.update(account) > 0)
+                updateMsg = "修改成功！";
+            else
+                updateMsg = "修改失败！";
+
+            if (account.getRole() == 1)
+                return "teacher";
+            else
+                return "student";
+        }
     }
 
     public String editStudent(){
         StudentDao studentDao = new StudentDao();
         System.out.println(student);
 
-        if (studentDao.update(student) > 0)
-            updateMsg = "修改成功！";
-        else
-            updateMsg = "修改失败！";
+        if (android == 1){
+            student.setId(studentId);
+            student.setName(name);
+            student.setGender(gender);
+            student.setPhone(phone);
+            student.setEmail(email);
 
-        return SUCCESS;
+            if (studentDao.update(student) > 0)
+                result.setResult(true);
+            else
+                result.setResult(false);
+
+            return "android";
+        }else {
+            if (studentDao.update(student) > 0)
+                updateMsg = "修改成功！";
+            else
+                updateMsg = "修改失败！";
+
+            return SUCCESS;
+        }
     }
 
     public String editTeacher(){
@@ -164,5 +196,29 @@ public class EditInfo extends ActionSupport {
 
     public void setNewPwd(String newPwd) {
         this.newPwd = newPwd;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public int getAndroid() {
+        return android;
+    }
+
+    public void setAndroid(int android) {
+        this.android = android;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 }

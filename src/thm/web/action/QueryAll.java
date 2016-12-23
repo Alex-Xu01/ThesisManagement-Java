@@ -20,6 +20,7 @@ public class QueryAll extends ActionSupport {
     private TbStudentEntity student = new TbStudentEntity();
     private int studentId;
     private int accountId;
+    private int android;
 
     public String quertAllPapers() throws Exception {
         PapersDao papersDao = new PapersDao();
@@ -55,7 +56,12 @@ public class QueryAll extends ActionSupport {
         PapersDao papersDao = new PapersDao();
         passPaperList = papersDao.queryAllPassPapers();
 
-        return SUCCESS;
+        System.out.println(android);
+
+        if (android == 1)
+            return "android";
+        else
+            return SUCCESS;
     }
 
     public String queryPassPapers(){
@@ -84,7 +90,10 @@ public class QueryAll extends ActionSupport {
         PapersDao papersDao = new PapersDao();
         failedPaperList = papersDao.queryFailedPaper();
 
-        return SUCCESS;
+        if (android== 1)
+            return "android";
+        else
+            return SUCCESS;
     }
 
 
@@ -166,5 +175,13 @@ public class QueryAll extends ActionSupport {
 
     public void setAccountId(int accountId) {
         this.accountId = accountId;
+    }
+
+    public int getAndroid() {
+        return android;
+    }
+
+    public void setAndroid(int android) {
+        this.android = android;
     }
 }

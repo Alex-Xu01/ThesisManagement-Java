@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.ChooseDao;
 import thm.web.dao.PapersDao;
 import thm.web.dao.StudentDao;
+import thm.web.entity.Result;
 import thm.web.entity.TbPaperchoiceEntity;
 import thm.web.entity.TbPaperinfoEntity;
 import thm.web.entity.TbStudentEntity;
@@ -25,21 +26,38 @@ public class StudentFunctionAction extends ActionSupport {
     private List<TbPaperchoiceEntity> chosenList;
     private PapersDao papersDao = new PapersDao();
     private ChooseDao chooseDao = new ChooseDao();
+    private int android;
+    private Result result = new Result();
 
     public String choosePaper(){
         System.out.println("paperId : " + paperId + "StudentId : " + studentId);
         paper = papersDao.get(paperId);
 
         if (chooseDao.ifChosen(studentId, paperId)) {
-            return INPUT;
+            result.setResult(false);
+
+            if (android == 1)
+                return "android";
+            else
+                return INPUT;
         }
 
         if (chooseDao.insert(choice, paper, studentId) > 0){
             chooseMsg = "选择成功！";
-            return SUCCESS;
+            result.setResult(true);
+
+            if (android == 1)
+                return "android";
+            else
+                return SUCCESS;
         }else{
             chooseMsg = "选择失败！";
-            return INPUT;
+            result.setResult(false);
+
+            if (android == 1)
+                return "android";
+            else
+                return INPUT;
         }
 
     }
@@ -56,14 +74,23 @@ public class StudentFunctionAction extends ActionSupport {
 
         System.out.println(chosenList);
 
-        return SUCCESS;
+        if (android == 1)
+            return "android";
+        else
+            return SUCCESS;
     }
 
     public String showInfo(){
         StudentDao studentDao = new StudentDao();
-        student = studentDao.queryByAccountId(accountId);
+        System.out.println("android : " + android + "; studentId : "+ studentId);
 
-        return SUCCESS;
+        if (android == 1){
+            student = studentDao.get(studentId);
+            return "android";
+        }else{
+            student = studentDao.queryByAccountId(accountId);
+            return SUCCESS;
+        }
     }
 
     public String choosePaperPre(){
@@ -148,5 +175,21 @@ public class StudentFunctionAction extends ActionSupport {
 
     public void setChosenList(List<TbPaperchoiceEntity> chosenList) {
         this.chosenList = chosenList;
+    }
+
+    public int getAndroid() {
+        return android;
+    }
+
+    public void setAndroid(int android) {
+        this.android = android;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
     }
 }

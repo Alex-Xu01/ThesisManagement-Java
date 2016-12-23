@@ -4,7 +4,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.*;
 import thm.web.entity.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tulip on 2016/12/9 0009.
@@ -30,6 +33,8 @@ public class AdminManageAction extends ActionSupport{
     private int depNumber;
     private int passNumber;
     private int failedNumber;
+    private int android;
+    private  List<Map<String, Integer>> data = new ArrayList<>();
 
     public String insertDep(){
         dep.setState(1);
@@ -159,12 +164,24 @@ public class AdminManageAction extends ActionSupport{
         DepDao depDao = new DepDao();
         PapersDao papersDao = new PapersDao();
 
+        Map<String, Integer> numbers = new HashMap();
+
         accountNumber = loginDao.queryAll().size();
         depNumber = depDao.queryAll().size();
         passNumber = papersDao.queryAllPassPapers().size();
         failedNumber = papersDao.queryFailedPaper().size();
 
-        return SUCCESS;
+        numbers.put("passNumber", passNumber);
+        numbers.put("failedNumber", failedNumber);
+
+        data.add(numbers);
+
+        System.out.println(numbers.toString());
+
+        if (android == 1)
+            return "android";
+        else
+            return SUCCESS;
     }
 
 
@@ -316,5 +333,21 @@ public class AdminManageAction extends ActionSupport{
 
     public void setFailedNumber(int failedNumber) {
         this.failedNumber = failedNumber;
+    }
+
+    public int getAndroid() {
+        return android;
+    }
+
+    public void setAndroid(int android) {
+        this.android = android;
+    }
+
+    public List<Map<String, Integer>> getData() {
+        return data;
+    }
+
+    public void setData(List<Map<String, Integer>> data) {
+        this.data = data;
     }
 }

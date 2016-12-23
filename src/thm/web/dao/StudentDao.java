@@ -19,6 +19,13 @@ public class StudentDao {
         return (TbStudentEntity) query.uniqueResult();
     }
 
+    public TbStudentEntity get(int id){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        TbStudentEntity student = (TbStudentEntity) session.get(TbStudentEntity.class, id);
+
+        return student;
+    }
+
     public int update(TbStudentEntity student){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();

@@ -34,6 +34,7 @@ public class AdminManageAction extends ActionSupport{
     private int passNumber;
     private int failedNumber;
     private int android;
+    private generalDataResult generalData = new generalDataResult();
     private  List<Map<String, Integer>> data = new ArrayList<>();
 
     public String insertDep(){
@@ -175,6 +176,8 @@ public class AdminManageAction extends ActionSupport{
         numbers.put("failedNumber", failedNumber);
 
         data.add(numbers);
+        generalData.setFailedNumber(failedNumber);
+        generalData.setPassNumber(passNumber);
 
         System.out.println(numbers.toString());
 
@@ -349,5 +352,13 @@ public class AdminManageAction extends ActionSupport{
 
     public void setData(List<Map<String, Integer>> data) {
         this.data = data;
+    }
+
+    public generalDataResult getGeneralData() {
+        return generalData;
+    }
+
+    public void setGeneralData(generalDataResult generalData) {
+        this.generalData = generalData;
     }
 }

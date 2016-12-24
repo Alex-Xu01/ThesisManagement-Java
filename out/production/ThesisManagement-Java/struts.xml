@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <package name="package-login" extends="json-default">
+        <action name="LoginAct" class="thm.web.action.LoginAction">
+            <result name="admin">/WEB-INF/roles/admin.jsp?id=${id}</result>
+            <result name="teacher">/WEB-INF/roles/teacher.jsp?id=${id}</result>
+            <result name="student">/WEB-INF/roles/student.jsp?id=${id}</result>
+            <result name="input">/index.jsp</result>
+            <result name="android" type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="package-teacher" extends="json-default">
+        <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
+            <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp?id=${id}</result>
+            <result name="manage" type="redirectAction">showMyPapers?id=${id}</result>
+        </action>
+        
+        <action name="teacherManageAct" class="thm.web.action.TeacherManageAction">
+            <result name="lookAll">/WEB-INF/teacher/lookAll.jsp</result>
+            <result name="edit" type="redirectAction">teacherUpdatePre?paperId=${paperId}&amp;updatePreFor=edit</result>
+            <result name="chosen">/WEB-INF/teacher/paperDetails.jsp</result>
+        </action>
+
+        <action name="teacherDeclarationAct" class="thm.web.action.TeacherManageAction" method="declaration">
+            <result name="input">/WEB-INF/teacher/declarationPapers.jsp</result>
+            <result name="success" type="redirectAction">showMyPapers?id=${teacher.account.id}</result>
+        </action>
+
+        <action name="teacherUpdateAct" class="thm.web.action.TeacherManageAction" method="update">
+            <result name="success" type="redirectAction">showMyPapers?id=${account.id}</result>
+        </action>
+
+        <action name="teacherUpdatePre" class="thm.web.action.TeacherManageAction" method="updatePre">
+            <result name="edit">/WEB-INF/teacher/edit.jsp?paperId=${paperId}</result>
+            <result name="adminVerify">/WEB-INF/admin/reviewsPaper.jsp?paperId=${paperId}</result>
+        </action>
+
+        <action name="teacherDeleteAct" class="thm.web.action.TeacherManageAction" method="delete">
+            <result name="success" type="redirectAction">showMyPapers?id=${paperInfo.teacher.account.id}</result>
+        </action>
+
+        <action name="showTeacherInfo" class="thm.web.action.TeacherFunctionAction" method="showInfo">
+            <result name="success">/WEB-INF/show/teacherInfo.jsp</result>
+        </action>
+
+        <action name="showMyPapers" class="thm.web.action.TeacherFunctionAction" method="showMyPapers">
+            <result name="success">/WEB-INF/teacher/teacherPaper.jsp</result>
+        </action>
+
+        <action name="showPaperDetails" class="thm.web.action.TeacherFunctionAction" method="showPaperDetails">
+            <result name="success">/WEB-INF/teacher/paperDetails.jsp</result>
+        </action>
+    </package>
+
+    <package name="package-admin" extends="json-default">
+        <action name="insertDepAct" class="thm.web.action.AdminManageAction" method="insertDep">
+            <result name="success" type="chain">queryAllDep</result>
+            <result name="input" type="chain">queryAllDep</result>
+        </action>
+
+        <action name="updateDepPre" class="thm.web.action.AdminManageAction" method="updateDepPre">
+            <result name="success">/WEB-INF/admin/manage/updateDep.jsp</result>
+        </action>
+
+        <action name="updateDepAct" class="thm.web.action.AdminManageAction" method="updateDep">
+            <result name="success" type="chain">queryAllDep</result>
+            <result name="input" type="chain">queryAllDep</result>
+        </action>
+
+        <action name="deleteDepAct" class="thm.web.action.AdminManageAction" method="deleteDep">
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+        </action>
+
+        <action name="insertAccountAct" class="thm.web.action.AdminManageAction" method="insertAccount">
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+        </action>
+
+        <action name="updateAccountPre" class="thm.web.action.AdminManageAction" method="updateAccountPre">
+            <result name="success">/WEB-INF/admin/manage/updateAccount.jsp</result>
+        </action>
+
+        <action name="updateAccountAct" class="thm.web.action.AdminManageAction" method="updateAccount">
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+        </action>
+
+        <action name="deleteAccountAct" class="thm.web.action.AdminManageAction" method="deleteAccount">
+            <result name="success" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+            <result name="input" type="redirectAction">queryAccountExceptMe?accountId=1</result>
+        </action>
+
+        <action name="adminVerifyAct" class="thm.web.action.TeacherManageAction" method="updateVerifyState">
+            <result name="success" type="chain">queryAllPassPapers</result>
+            <result name="input">/WEB-INF/admin/reviewsPaper.jsp</result>
+        </action>
+
+        <action name="queryNumbers" class="thm.web.action.AdminManageAction" method="queryNumbers">
+            <result name="success">/WEB-INF/admin/default.jsp</result>
+            <result name="android" type="json">
+                <param name="root">generalData</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="package-common" extends="json-default">
+        <action name="queryAllPapers" class="thm.web.action.QueryAll" method="quertAllPapers">
+            <result name="success">/WEB-INF/show/showAllPapers.jsp</result>
+        </action>
+
+        <action name="queryAllDep" class="thm.web.action.QueryAll" method="queryAllDep">
+            <result name="success">/WEB-INF/show/showAllDep.jsp</result>
+        </action>
+
+        <action name="queryAllAccount" class="thm.web.action.QueryAll" method="queryAllAccount">
+            <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
+        </action>
+
+        <action name="queryAccountExceptMe" class="thm.web.action.QueryAll" method="queryExceptMe">
+            <result name="success">/WEB-INF/show/showAllAccount.jsp</result>
+        </action>
+
+        <action name="queryPassPapers" class="thm.web.action.QueryAll" method="queryPassPapers">
+            <result name="success">/WEB-INF/show/showPassPapers.jsp?studentId=${studentId}</result>
+        </action>
+
+        <action name="queryAllPassPapers" class="thm.web.action.QueryAll" method="queryAllPass">
+            <result name="success">/WEB-INF/show/showPassPapers.jsp</result>
+            <result name="android" type="json">
+                <param name="root">thesisResult</param>
+            </result>
+        </action>
+
+        <action name="queryPassPapers_t" class="thm.web.action.QueryAll" method="queryPassPaper_t">
+            <result name="success">/WEB-INF/teacher/showPassPapers_t.jsp</result>
+        </action>
+
+        <action name="queryFailedPaper" class="thm.web.action.QueryAll" method="queryFailedPaper">
+            <result name="success">/WEB-INF/show/showFailedPaper.jsp</result>
+            <result name="android" type="json">
+                <param name="root">failedPaperList</param>
+            </result>
+        </action>
+
+        <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
+            <result name="success">/WEB-INF/admin/manage/insertDep.jsp</result>
+        </action>
+
+        <action name="dispatcherInsertAccount" class="thm.web.action.Dispatcher" method="toInsertAccount">
+            <result name="success">/WEB-INF/admin/manage/insertAccount.jsp</result>
+        </action>
+
+        <action name="dispatcherEditAccount" class="thm.web.action.Dispatcher" method="toEditAccount">
+            <result name="success">/WEB-INF/edit/editAccount.jsp</result>
+        </action>
+
+        <action name="dispatcherEditStudent" class="thm.web.action.Dispatcher" method="toEditStudent">
+            <result name="success">/WEB-INF/edit/editStudent.jsp</result>
+        </action>
+
+        <action name="dispatcherEditTeacher" class="thm.web.action.Dispatcher" method="toEditTeacher">
+            <result name="success">/WEB-INF/edit/editTeacher.jsp</result>
+        </action>
+
+        <action name="editAccountAct" class="thm.web.action.EditInfo" method="editAccount">
+            <result name="teacher" type="redirectAction">showTeacherInfo?id=${account.id}</result>
+            <result name="student" type="redirectAction">showStudentInfo?accountId=${account.id}</result>
+            <result name="android" type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">
+            <result name="success" type="redirectAction">showStudentInfo?accountId=${student.accountId}</result>
+            <result name="android" type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="editTeacherAct" class="thm.web.action.EditInfo" method="editTeacher">
+            <result name="success" type="redirectAction">showTeacherInfo?id=${teacher.account.id}</result>
+        </action>
+    </package>
+    
+    <package name="package-student" extends="json-default">
+        <action name="choosePaperAct" class="thm.web.action.StudentFunctionAction" method="choosePaper">
+            <result name="input" type="chain">queryPassPapers</result>
+            <result name="success" type="redirectAction">showChoose?studentId=${studentId}</result>
+            <result name="android" type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="showChoose" class="thm.web.action.StudentFunctionAction" method="lookChoose">
+            <result name="success">/WEB-INF/student/chosenPaper.jsp</result>
+            <result name="android" type="json">
+                <param name="root">thesisResult</param>
+            </result>
+        </action>
+
+        <action name="showStudentInfo" class="thm.web.action.StudentFunctionAction" method="showInfo">
+            <result name="success">/WEB-INF/show/studentInfo.jsp</result>
+            <result name="android" type="json">
+                <param name="root">student</param>
+            </result>
+            <result name="input">/index.jsp</result>
+        </action>
+
+        <action name="choosePaperPre" class="thm.web.action.StudentFunctionAction" method="choosePaperPre">
+            <result name="success">/WEB-INF/student/choosePaper.jsp?studentId=${studentId}</result>
+            <result name="details">/WEB-INF/student/details.jsp</result>
+            <result name="android" type="json">
+                <param name="root">paper</param>
+            </result>
+        </action>
+    </package>
+</struts>

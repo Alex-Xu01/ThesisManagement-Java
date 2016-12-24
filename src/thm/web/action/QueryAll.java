@@ -22,6 +22,9 @@ public class QueryAll extends ActionSupport {
     private int accountId;
     private int android;
 
+    private Thesis thesisResult = new Thesis();
+
+
     public String quertAllPapers() throws Exception {
         PapersDao papersDao = new PapersDao();
 
@@ -59,7 +62,11 @@ public class QueryAll extends ActionSupport {
         System.out.println(android);
 
         if (android == 1)
+        {
+            passPaperList = papersDao.queryAllPassPapersInfo();
+            thesisResult.setThesisResult(passPaperList);
             return "android";
+        }
         else
             return SUCCESS;
     }
@@ -183,5 +190,13 @@ public class QueryAll extends ActionSupport {
 
     public void setAndroid(int android) {
         this.android = android;
+    }
+
+    public Thesis getThesisResult() {
+        return thesisResult;
+    }
+
+    public void setThesisResult(Thesis thesisResult) {
+        this.thesisResult = thesisResult;
     }
 }

@@ -4,10 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import thm.web.dao.ChooseDao;
 import thm.web.dao.PapersDao;
 import thm.web.dao.StudentDao;
-import thm.web.entity.Result;
-import thm.web.entity.TbPaperchoiceEntity;
-import thm.web.entity.TbPaperinfoEntity;
-import thm.web.entity.TbStudentEntity;
+import thm.web.entity.*;
 
 import java.util.List;
 
@@ -24,10 +21,13 @@ public class StudentFunctionAction extends ActionSupport {
     private TbPaperchoiceEntity choice = new TbPaperchoiceEntity();
     private TbStudentEntity student = new TbStudentEntity();
     private List<TbPaperchoiceEntity> chosenList;
+    private List<TbPaperinfoEntity> list;
     private PapersDao papersDao = new PapersDao();
     private ChooseDao chooseDao = new ChooseDao();
     private int android;
     private Result result = new Result();
+
+    private Thesis thesisResult = new Thesis();
 
     public String choosePaper(){
         System.out.println("paperId : " + paperId + "StudentId : " + studentId);
@@ -67,11 +67,16 @@ public class StudentFunctionAction extends ActionSupport {
         ChooseDao chooseDao = new ChooseDao();
         StudentDao studentDao = new StudentDao();
         student = studentDao.queryByAccountId(accountId);
-        if (student != null)
+        if (student != null){
             chosenList = chooseDao.queryChoosedPaper(student.getId());
-        else
+            list = chooseDao.queryChoosedPaperInfo(student.getId());
+        }
+        else{
             chosenList = chooseDao.queryChoosedPaper(studentId);
+            list = chooseDao.queryChoosedPaperInfo(studentId);
+        }
 
+        thesisResult.setThesisResult(list);
         System.out.println(chosenList);
 
         if (android == 1)
@@ -98,7 +103,9 @@ public class StudentFunctionAction extends ActionSupport {
         paper = papersDao.get(paperId);
 
         System.out.println("studentId : " + studentId);
-
+        if(android==1){
+            return "android";
+        }
         if ("details".equals(chooseMsg))
             return "details";
         else
@@ -177,6 +184,14 @@ public class StudentFunctionAction extends ActionSupport {
         this.chosenList = chosenList;
     }
 
+    public List<TbPaperinfoEntity> getList() {
+        return list;
+    }
+
+    public void setList(List<TbPaperinfoEntity> list) {
+        this.list = list;
+    }
+
     public int getAndroid() {
         return android;
     }
@@ -191,5 +206,13 @@ public class StudentFunctionAction extends ActionSupport {
 
     public void setResult(Result result) {
         this.result = result;
+    }
+
+    public Thesis getThesisResult() {
+        return thesisResult;
+    }
+
+    public void setThesisResult(Thesis thesisResult) {
+        this.thesisResult = thesisResult;
     }
 }

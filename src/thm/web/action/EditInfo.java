@@ -66,10 +66,9 @@ public class EditInfo extends ActionSupport {
 
     public String editStudent(){
         StudentDao studentDao = new StudentDao();
-        System.out.println(student);
+        student=studentDao.get(studentId);
 
         if (android == 1){
-            student.setId(studentId);
             student.setName(name);
             student.setGender(gender);
             student.setPhone(phone);

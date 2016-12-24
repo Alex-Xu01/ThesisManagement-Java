@@ -22,6 +22,12 @@ public class ChooseDao {
         return query.list();
     }
 
+    public List<TbPaperinfoEntity> queryChoosedPaperInfo(int studentId){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("select paper from TbPaperchoiceEntity as p where p.studentId = " + studentId);
+        return query.list();
+    }
+
     public int insert(TbPaperchoiceEntity choice, TbPaperinfoEntity paper, int studentId){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Transaction transaction = session.beginTransaction();

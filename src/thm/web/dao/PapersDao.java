@@ -38,6 +38,13 @@ public class PapersDao {
         return query.list();
     }
 
+    public List<TbPaperinfoEntity> queryAllPassPapersInfo(){
+        Session session = new HibernateSessionFactory().getCurrentSession();
+        Query query = session.createQuery("from TbPaperinfoEntity");
+
+        return query.list();
+    }
+
     public List<TbPaperinfoEntity> queryFailedPaper(){
         Session session = new HibernateSessionFactory().getCurrentSession();
         Query query = session.createQuery("from TbPaperinfoEntity as pi where pi.verifyState = 0 and pi.numbers > 0");

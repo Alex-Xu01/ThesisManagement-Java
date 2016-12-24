@@ -5,7 +5,6 @@ package thm.web.entity;
  */
 public class Result {
     private boolean result;
-    private TbStudentEntity student;
 
     public boolean isResult() {
         return result;
@@ -13,14 +12,6 @@ public class Result {
 
     public void setResult(boolean result) {
         this.result = result;
-    }
-
-    public TbStudentEntity getStudent() {
-        return student;
-    }
-
-    public void setStudent(TbStudentEntity student) {
-        this.student = student;
     }
 
 }

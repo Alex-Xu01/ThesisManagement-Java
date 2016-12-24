@@ -110,7 +110,7 @@
         <action name="queryNumbers" class="thm.web.action.AdminManageAction" method="queryNumbers">
             <result name="success">/WEB-INF/admin/default.jsp</result>
             <result name="android" type="json">
-                <param name="root">data</param>
+                <param name="root">generalData</param>
             </result>
         </action>
     </package>
@@ -139,7 +139,7 @@
         <action name="queryAllPassPapers" class="thm.web.action.QueryAll" method="queryAllPass">
             <result name="success">/WEB-INF/show/showPassPapers.jsp</result>
             <result name="android" type="json">
-                <param name="root">passPaperList</param>
+                <param name="root">thesisResult</param>
             </result>
         </action>
 
@@ -206,7 +206,7 @@
         <action name="showChoose" class="thm.web.action.StudentFunctionAction" method="lookChoose">
             <result name="success">/WEB-INF/student/chosenPaper.jsp</result>
             <result name="android" type="json">
-                <param name="root">chosenList</param>
+                <param name="root">thesisResult</param>
             </result>
         </action>
 
@@ -221,6 +221,9 @@
         <action name="choosePaperPre" class="thm.web.action.StudentFunctionAction" method="choosePaperPre">
             <result name="success">/WEB-INF/student/choosePaper.jsp?studentId=${studentId}</result>
             <result name="details">/WEB-INF/student/details.jsp</result>
+            <result name="android" type="json">
+                <param name="root">paper</param>
+            </result>
         </action>
     </package>
 </struts>

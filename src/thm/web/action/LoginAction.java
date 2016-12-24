@@ -6,6 +6,7 @@ import thm.web.dao.StudentDao;
 import thm.web.entity.Result;
 import thm.web.entity.TbAccountEntity;
 import thm.web.entity.TbStudentEntity;
+import thm.web.entity.loginResult;
 
 import java.util.List;
 
@@ -20,9 +21,7 @@ public class LoginAction extends ActionSupport {
     private String loginMsg;
     private int id;
     private int android;
-    private Result result = new Result();
-    private int failedNumber;
-    private int passNumber;
+    private loginResult result = new loginResult();
 
     @Override
     public String execute() throws Exception {
@@ -44,7 +43,8 @@ public class LoginAction extends ActionSupport {
         if (!accountEntityList.isEmpty() && loginPwd.equals(accountEntityList.get(0).getLoginPwd()) && accountEntityList.get(0).getRole() == 2) {
             if (android == 1){
                 result.setResult(true);
-                result.setStudent(student);
+                result.setAccountId(student.getAccountId());
+                result.setStudentId(student.getId());
                 return "android";
             }
             else
@@ -103,11 +103,11 @@ public class LoginAction extends ActionSupport {
         this.android = android;
     }
 
-    public Result getResult() {
+    public loginResult getResult() {
         return result;
     }
 
-    public void setResult(Result result) {
+    public void setResult(loginResult result) {
         this.result = result;
     }
 

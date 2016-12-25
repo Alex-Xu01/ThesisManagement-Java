@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Tulip on 2016/12/5 0005.
  */
 @Entity
-@Table(name = "tb_paperchoice", schema = "gtms")
+@Table(name = "tb_paperchoice", schema = "bdm257366643_db")
 public class TbPaperchoiceEntity {
     private int id;
     private int state;

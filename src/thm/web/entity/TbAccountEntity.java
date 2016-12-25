@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Tulip on 2016/12/5 0005.
  */
 @Entity
-@Table(name = "tb_account", schema = "gtms")
+@Table(name = "tb_account", schema = "bdm257366643_db")
 public class TbAccountEntity {
     private int id;
     private String loginName;

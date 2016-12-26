@@ -7,26 +7,36 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-                   <%--_ooOoo_--%>
-                  <%--o8888888o--%>
-                  <%--88" . "88--%>
-                  <%--(| -_- |)--%>
-                  <%--O\  =  /O--%>
-               <%--____/`---'\____--%>
-             <%--.'  \\|     |//  `.--%>
-            <%--/  \\|||  :  |||//  \--%>
-           <%--/  _||||| -:- |||||-  \--%>
-           <%--|   | \\\  -  /// |   |--%>
-           <%--| \_|  ''\---/''  |   |--%>
-           <%--\  .-\__  `-`  ___/-. /--%>
-         <%--___`. .'  /--.--\  `. . __--%>
-      <%--."" '<  `.___\_<|>_/___.'  >'"".--%>
-     <%--| | :  `- \`.;`\ _ /`;.`/ - ` : | |--%>
-     <%--\  \ `-.   \_ __\ /__ _/   .-` /  /--%>
-<%--======`-.____`-.___\_____/___.-`____.-'======--%>
-                   <%--`=---='--%>
-<%--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--%>
-         <%--佛祖保佑       永无BUG--%>
+<%--<html>--%>
+<%--<head>--%>
+    <%--<title>已选择的论文</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<table border="1">--%>
+    <%--<tr>--%>
+        <%--<th>ID</th>--%>
+        <%--<th>论文标题</th>--%>
+        <%--<th>论文类型</th>--%>
+        <%--<th>题目来源</th>--%>
+        <%--<th>录入教师</th>--%>
+        <%--<th>录入时间</th>--%>
+    <%--</tr>--%>
+    <%--<c:forEach items="${chosenList}" var="item">--%>
+        <%--<tr>--%>
+            <%--<td>${item.paper.id}</td>--%>
+            <%--<td>${item.paper.title}</td>--%>
+            <%--<td>${item.paper.type}</td>--%>
+            <%--<td>${item.paper.origin}</td>--%>
+            <%--<td>${item.paper.teacher.name}</td>--%>
+            <%--<td>${item.paper.releaseDate}</td>--%>
+            <%--<div class="button-group"><a class="button border-main" href="Student_Paper_select.html"><span--%>
+                    <%--class="icon-edit"></span>详细</a>--%>
+            <%--</div>--%>
+        <%--</tr>--%>
+    <%--</c:forEach>--%>
+<%--</table>--%>
+<%--</body>--%>
+<%--</html>--%>
 
 
 <!DOCTYPE html>

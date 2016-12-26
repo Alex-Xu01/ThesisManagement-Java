@@ -7,26 +7,30 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-                   <%--_ooOoo_--%>
-                  <%--o8888888o--%>
-                  <%--88" . "88--%>
-                  <%--(| -_- |)--%>
-                  <%--O\  =  /O--%>
-               <%--____/`---'\____--%>
-             <%--.'  \\|     |//  `.--%>
-            <%--/  \\|||  :  |||//  \--%>
-           <%--/  _||||| -:- |||||-  \--%>
-           <%--|   | \\\  -  /// |   |--%>
-           <%--| \_|  ''\---/''  |   |--%>
-           <%--\  .-\__  `-`  ___/-. /--%>
-         <%--___`. .'  /--.--\  `. . __--%>
-      <%--."" '<  `.___\_<|>_/___.'  >'"".--%>
-     <%--| | :  `- \`.;`\ _ /`;.`/ - ` : | |--%>
-     <%--\  \ `-.   \_ __\ /__ _/   .-` /  /--%>
-<%--======`-.____`-.___\_____/___.-`____.-'======--%>
-                   <%--`=---='--%>
-<%--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--%>
-         <%--佛祖保佑       永无BUG--%>
+<%--<html>--%>
+<%--<head>--%>
+<%--<title>修改用户信息</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<form action="editStudentAct.action" method="post">--%>
+<%--姓名：<input type="text" name="student.name" value="${student.name}"> <br>--%>
+<%--电话：<input type="text" name="student.phone" value="${student.phone}"> <br>--%>
+<%--电子邮箱：<input type="text" name="student.email" value="${student.email}"> <br>--%>
+<%--性别：<input type="text" name="student.gender" value="${student.gender}"> <br>--%>
+<%--所属系部：--%>
+<%--<select name="student.dep.id" value="${student.dep.id}">--%>
+<%--<c:forEach items="${depList}" var="item">--%>
+<%--<option value="${item.id}">${item.name}</option>--%>
+<%--</c:forEach>--%>
+<%--</select><br>--%>
+<%--<input type="number" name="student.id" value="${student.id}" style="display:none;">--%>
+<%--<input type="text" name="student.picPath" value="${student.picPath}" style="display:none;">--%>
+<%--<input type="number" name="student.accountId" value="${student.accountId}" style="display:none;">--%>
+<%--<input type="number" name="student.state" value="${student.state}" style="display:none;">--%>
+<%--<input type="submit" value="确定">--%>
+<%--</form>--%>
+<%--</body>--%>
+<%--</html>--%>
 
 
 <!DOCTYPE html>
@@ -110,15 +114,6 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>头像：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="student.picPath" value="${student.picPath}"/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
                     <label></label>
                 </div>
                 <div class="field">
@@ -126,6 +121,7 @@
                 </div>
             </div>
             <input type="number" name="student.id" value="${student.id}" style="display:none;">
+            <input type="text" name="student.picPath" value="${student.picPath}" style="display:none;">
             <input type="number" name="student.accountId" value="${student.accountId}" style="display:none;">
             <input type="number" name="student.state" value="${student.state}" style="display:none;">
         </form>

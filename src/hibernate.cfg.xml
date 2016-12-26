@@ -7,9 +7,9 @@
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://bdm257366643.my3w.com:3306/bdm257366643_db</property>
-        <property name="connection.username">bdm257366643</property>
-        <property name="connection.password">adminsql</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/gtms</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
 

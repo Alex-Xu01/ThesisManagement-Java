@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="ThesisManagement-Java:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/ThesisManagement_Java_war</output-path>
-    <root id="archive" name="ThesisManagement-Java_war.war">
-      <element id="artifact" artifact-name="ThesisManagement-Java:war exploded" />
-    </root>
-  </artifact>
-</component>

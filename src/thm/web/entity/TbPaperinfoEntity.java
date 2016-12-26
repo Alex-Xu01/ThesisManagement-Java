@@ -7,7 +7,7 @@ import java.sql.Date;
  * Created by Tulip on 2016/12/5 0005.
  */
 @Entity
-@Table(name = "tb_paperinfo", schema = "bdm257366643_db")
+@Table(name = "tb_paperinfo", schema = "gtms")
 public class TbPaperinfoEntity {
     private int id;
     private String title;

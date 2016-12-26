@@ -8,19 +8,16 @@
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
 
-    <package name="package-login" extends="json-default">
+    <package name="package-login" extends="struts-default">
         <action name="LoginAct" class="thm.web.action.LoginAction">
             <result name="admin">/WEB-INF/roles/admin.jsp?id=${id}</result>
             <result name="teacher">/WEB-INF/roles/teacher.jsp?id=${id}</result>
             <result name="student">/WEB-INF/roles/student.jsp?id=${id}</result>
             <result name="input">/index.jsp</result>
-            <result name="android" type="json">
-                <param name="root">result</param>
-            </result>
         </action>
     </package>
 
-    <package name="package-teacher" extends="json-default">
+    <package name="package-teacher" extends="struts-default">
         <action name="teacherFunctionAct" class="thm.web.action.TeacherFunctionAction">
             <result name="declaration">/WEB-INF/teacher/declarationPapers.jsp?id=${id}</result>
             <result name="manage" type="redirectAction">showMyPapers?id=${id}</result>
@@ -63,7 +60,7 @@
         </action>
     </package>
 
-    <package name="package-admin" extends="json-default">
+    <package name="package-admin" extends="struts-default">
         <action name="insertDepAct" class="thm.web.action.AdminManageAction" method="insertDep">
             <result name="success" type="chain">queryAllDep</result>
             <result name="input" type="chain">queryAllDep</result>
@@ -109,13 +106,10 @@
 
         <action name="queryNumbers" class="thm.web.action.AdminManageAction" method="queryNumbers">
             <result name="success">/WEB-INF/admin/default.jsp</result>
-            <result name="android" type="json">
-                <param name="root">data</param>
-            </result>
         </action>
     </package>
 
-    <package name="package-common" extends="json-default">
+    <package name="package-common" extends="struts-default">
         <action name="queryAllPapers" class="thm.web.action.QueryAll" method="quertAllPapers">
             <result name="success">/WEB-INF/show/showAllPapers.jsp</result>
         </action>
@@ -138,9 +132,6 @@
 
         <action name="queryAllPassPapers" class="thm.web.action.QueryAll" method="queryAllPass">
             <result name="success">/WEB-INF/show/showPassPapers.jsp</result>
-            <result name="android" type="json">
-                <param name="root">passPaperList</param>
-            </result>
         </action>
 
         <action name="queryPassPapers_t" class="thm.web.action.QueryAll" method="queryPassPaper_t">
@@ -149,9 +140,6 @@
 
         <action name="queryFailedPaper" class="thm.web.action.QueryAll" method="queryFailedPaper">
             <result name="success">/WEB-INF/show/showFailedPaper.jsp</result>
-            <result name="android" type="json">
-                <param name="root">failedPaperList</param>
-            </result>
         </action>
 
         <action name="dispatcherInsertDep" class="thm.web.action.Dispatcher" method="toInsertDep">
@@ -177,16 +165,10 @@
         <action name="editAccountAct" class="thm.web.action.EditInfo" method="editAccount">
             <result name="teacher" type="redirectAction">showTeacherInfo?id=${account.id}</result>
             <result name="student" type="redirectAction">showStudentInfo?accountId=${account.id}</result>
-            <result name="android" type="json">
-                <param name="root">result</param>
-            </result>
         </action>
 
         <action name="editStudentAct" class="thm.web.action.EditInfo" method="editStudent">
             <result name="success" type="redirectAction">showStudentInfo?accountId=${student.accountId}</result>
-            <result name="android" type="json">
-                <param name="root">result</param>
-            </result>
         </action>
 
         <action name="editTeacherAct" class="thm.web.action.EditInfo" method="editTeacher">
@@ -194,28 +176,18 @@
         </action>
     </package>
     
-    <package name="package-student" extends="json-default">
+    <package name="package-student" extends="struts-default">
         <action name="choosePaperAct" class="thm.web.action.StudentFunctionAction" method="choosePaper">
             <result name="input" type="chain">queryPassPapers</result>
             <result name="success" type="redirectAction">showChoose?studentId=${studentId}</result>
-            <result name="android" type="json">
-                <param name="root">result</param>
-            </result>
         </action>
 
         <action name="showChoose" class="thm.web.action.StudentFunctionAction" method="lookChoose">
             <result name="success">/WEB-INF/student/chosenPaper.jsp</result>
-            <result name="android" type="json">
-                <param name="root">chosenList</param>
-            </result>
         </action>
 
         <action name="showStudentInfo" class="thm.web.action.StudentFunctionAction" method="showInfo">
             <result name="success">/WEB-INF/show/studentInfo.jsp</result>
-            <result name="android" type="json">
-                <param name="root">student</param>
-            </result>
-            <result name="input">/index.jsp</result>
         </action>
 
         <action name="choosePaperPre" class="thm.web.action.StudentFunctionAction" method="choosePaperPre">
